@@ -1,1 +1,1 @@
-# EventCraft
+# EventCraft project

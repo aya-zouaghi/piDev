@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.eventcraft.controllers.ModifierDemandeController">
+
+    <VBox alignment="CENTER" spacing="10" layoutX="50.0" layoutY="50.0">
+        <Label text="Modifier Demande" style="-fx-font-size: 20px;"/>
+        <TextField fx:id="tf_idDemande" promptText="ID Demande" editable="false"/>
+        <TextField fx:id="tf_user" promptText="Utilisateur"/>
+        <TextField fx:id="tf_offre" promptText="Offre"/>
+        <TextField fx:id="tf_statutDemande" promptText="Statut"/>
+        <DatePicker fx:id="dp_dateDemande"/>
+        <Button fx:id="saveButton" text="Sauvegarder" onAction="#modifierDemande"/>
+    </VBox>
+
+</AnchorPane>

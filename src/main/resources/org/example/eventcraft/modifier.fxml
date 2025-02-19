@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.eventcraft.controllers.ModifierController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox alignment="CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+        </padding>
+
+        <!-- Titre de la page -->
+        <Label text="Modifier une Offre" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <!-- Champ ID de l'Offre -->
+        <HBox spacing="10.0">
+            <Label text="ID de l'Offre:"/>
+            <TextField fx:id="tf_idOffre" promptText="Entrez l'ID de l'offre"/>
+        </HBox>
+
+        <!-- Champ Titre -->
+        <HBox spacing="10.0">
+            <Label text="Titre de l'Offre:"/>
+            <TextField fx:id="tf_titre" promptText="Entrez le titre de l'offre"/>
+        </HBox>
+
+        <!-- Champ Description -->
+        <HBox spacing="10.0">
+            <Label text="Description:"/>
+            <TextArea fx:id="tf_description" promptText="Entrez la description de l'offre" prefWidth="200" prefHeight="100"/>
+        </HBox>
+
+        <!-- Champ Type -->
+        <HBox spacing="10.0">
+            <Label text="Type d'Offre:"/>
+            <TextField fx:id="tf_type" promptText="Entrez le type de l'offre"/>
+        </HBox>
+
+        <!-- Champ Montant -->
+        <HBox spacing="10.0">
+            <Label text="Montant:"/>
+            <TextField fx:id="tf_montant" promptText="Entrez le montant de l'offre"/>
+        </HBox>
+
+        <!-- Sélection de la Date d'Expiration -->
+        <HBox spacing="10.0">
+            <Label text="Date d'Expiration:"/>
+            <DatePicker fx:id="dp_dateExp"/>
+        </HBox>
+
+        <!-- Champ Evenement -->
+        <HBox spacing="10.0">
+            <Label text="ID de l'Événement:"/>
+            <TextField fx:id="tf_evenement" promptText="Entrez l'ID de l'événement"/>
+        </HBox>
+
+        <!-- Champ Utilisateur -->
+        <HBox spacing="10.0">
+            <Label text="ID Utilisateur:"/>
+            <TextField fx:id="tf_user" promptText="Entrez l'ID de l'utilisateur"/>
+        </HBox>
+
+        <!-- Bouton Modifier l'Offre -->
+        <Button text="Modifier l'Offre" onAction="#modifierOffre"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;"/>
+    </VBox>
+</AnchorPane>

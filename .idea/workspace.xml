@@ -40,7 +40,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/ASUS/IdeaProjects/Pidev_eventcraft/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX",
@@ -71,7 +71,6 @@
       <workItem from="1739732516193" duration="928000" />
       <workItem from="1739782974802" duration="43483000" />
       <workItem from="1739873392695" duration="29388000" />
-      <workItem from="1739962359391" duration="2026000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,84 @@
+package Controllors;
+
+import entities.Decoration;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import services.ServiceDecoration;
+
+public class ModifierDecorationController {
+    @javafx.fxml.FXML
+    private TextField md_prix;
+    @javafx.fxml.FXML
+    private TextField md_stock;
+    @javafx.fxml.FXML
+    private TextField md_nom;
+    @javafx.fxml.FXML
+    private TextField md_description;
+    @javafx.fxml.FXML
+    private TextField md_type;
+    private Decoration selectedDeco;
+    private final ServiceDecoration serviceDecoration = new ServiceDecoration();
+    private AfficherDecorationController afficherController;
+
+    public void setDecoration(Decoration decoration) {
+        this.selectedDeco = decoration;
+
+        if (decoration != null) {
+            md_nom.setText(decoration.getNom_decor());
+            md_type.setText(decoration.getType_decor());
+            md_description.setText(decoration.getDescription_decor());
+            md_prix.setText(String.valueOf(decoration.getPrix()));
+            md_stock.setText(String.valueOf(decoration.getStock()));
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void modifier(ActionEvent actionEvent) {
+        if (selectedDeco != null) {
+            try {
+                // Mise à jour des valeurs
+                selectedDeco.setNom_decor(md_nom.getText());
+                selectedDeco.setType_decor(md_type.getText());
+                selectedDeco.setDescription_decor(md_description.getText());
+                selectedDeco.setPrix(Float.parseFloat(md_prix.getText()));
+                selectedDeco.setStock(Integer.parseInt(md_stock.getText()));
+
+                // Enregistrer la modification dans la base de données
+                serviceDecoration.modifier(selectedDeco);
+
+                showAlert("Succès", "La décoration a été modifiée avec succès.", Alert.AlertType.INFORMATION);
+                //Retourner a la liste des décorations
+                AfficherDecorationController afficherController = new AfficherDecorationController();
+                afficherController.rafraichirAffichage(); // Rafraîchir la liste des décorations
+                // Fermer la fenêtre actuelle (détails)
+                Stage stage = (Stage) md_nom.getScene().getWindow();
+                stage.close();
+
+            } catch (Exception e) {
+                showAlert("Erreur", "Impossible de modifier la décoration. Détails : " + e.getMessage(), Alert.AlertType.ERROR);
+                e.printStackTrace();
+            }
+        } else {
+            showAlert("Erreur", "Aucune décoration sélectionnée.", Alert.AlertType.WARNING);
+        }
+            }
+
+    @javafx.fxml.FXML
+    public void Annuler(ActionEvent actionEvent) {
+        // Fermer la fenêtre sans modifier
+        Stage stage = (Stage) md_nom.getScene().getWindow();
+        stage.close();
+    }
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    public void setAfficherController(AfficherDecorationController afficherController) {
+        this.afficherController = afficherController;
+    }
+}

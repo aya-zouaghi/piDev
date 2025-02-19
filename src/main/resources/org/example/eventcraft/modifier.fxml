@@ -13,66 +13,74 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.example.eventcraft.controllers.ModifierController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FAF9F6;">
 
-    <VBox alignment="CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml">
+    <VBox alignment="CENTER" spacing="20.0">
         <padding>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
         </padding>
 
         <!-- Titre de la page -->
-        <Label text="Modifier une Offre" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        <Label text="Modifier une Offre" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
 
         <!-- Champ ID de l'Offre -->
-        <HBox spacing="10.0">
-            <Label text="ID de l'Offre:"/>
-            <TextField fx:id="tf_idOffre" promptText="Entrez l'ID de l'offre"/>
+        <HBox spacing="15.0">
+            <Label text="ID de l'Offre:" style="-fx-text-fill: #333333;"/>
+            <TextField fx:id="tf_idOffre" promptText="Entrez l'ID de l'offre"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Champ Titre -->
-        <HBox spacing="10.0">
-            <Label text="Titre de l'Offre:"/>
-            <TextField fx:id="tf_titre" promptText="Entrez le titre de l'offre"/>
+        <HBox spacing="15.0">
+            <Label text="Titre de l'Offre:" style="-fx-text-fill: #333333;"/>
+            <TextField fx:id="tf_titre" promptText="Entrez le titre de l'offre"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Champ Description -->
-        <HBox spacing="10.0">
-            <Label text="Description:"/>
-            <TextArea fx:id="tf_description" promptText="Entrez la description de l'offre" prefWidth="200" prefHeight="100"/>
+        <HBox spacing="15.0">
+            <Label text="Description:" style="-fx-text-fill: #333333;"/>
+            <TextArea fx:id="tf_description" promptText="Entrez la description de l'offre" prefWidth="200" prefHeight="100"
+                      style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Champ Type -->
-        <HBox spacing="10.0">
-            <Label text="Type d'Offre:"/>
-            <TextField fx:id="tf_type" promptText="Entrez le type de l'offre"/>
+        <HBox spacing="15.0">
+            <Label text="Type d'Offre:" style="-fx-text-fill: #333333;"/>
+            <TextField fx:id="tf_type" promptText="Entrez le type de l'offre"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Champ Montant -->
-        <HBox spacing="10.0">
-            <Label text="Montant:"/>
-            <TextField fx:id="tf_montant" promptText="Entrez le montant de l'offre"/>
+        <HBox spacing="15.0">
+            <Label text="Montant:" style="-fx-text-fill: #333333;"/>
+            <TextField fx:id="tf_montant" promptText="Entrez le montant de l'offre"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Sélection de la Date d'Expiration -->
-        <HBox spacing="10.0">
-            <Label text="Date d'Expiration:"/>
-            <DatePicker fx:id="dp_dateExp"/>
+        <HBox spacing="15.0">
+            <Label text="Date d'Expiration:" style="-fx-text-fill: #333333;"/>
+            <DatePicker fx:id="dp_dateExp" style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Champ Evenement -->
-        <HBox spacing="10.0">
-            <Label text="ID de l'Événement:"/>
-            <TextField fx:id="tf_evenement" promptText="Entrez l'ID de l'événement"/>
+        <HBox spacing="15.0">
+            <Label text="ID de l'Événement:" style="-fx-text-fill: #333333;"/>
+            <TextField fx:id="tf_evenement" promptText="Entrez l'ID de l'événement"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Champ Utilisateur -->
-        <HBox spacing="10.0">
-            <Label text="ID Utilisateur:"/>
-            <TextField fx:id="tf_user" promptText="Entrez l'ID de l'utilisateur"/>
+        <HBox spacing="15.0">
+            <Label text="ID Utilisateur:" style="-fx-text-fill: #333333;"/>
+            <TextField fx:id="tf_user" promptText="Entrez l'ID de l'utilisateur"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E2E2; -fx-border-radius: 8px;"/>
         </HBox>
 
         <!-- Bouton Modifier l'Offre -->
         <Button text="Modifier l'Offre" onAction="#modifierOffre"
-                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;"/>
+                style="-fx-background-color: #D7B29D; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 8px; -fx-padding: 10 20;"/>
     </VBox>
+
 </AnchorPane>

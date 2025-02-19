@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 
-<VBox alignment="CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.eventcraft.controllers.AjoutDemandeController">
-    <padding>
-        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
-    </padding>
+<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #F0C8C6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.eventcraft.controllers.AjoutDemandeController">
 
-    <!-- Titre de la page -->
-    <Label text="Ajouter une Demande" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <VBox alignment="CENTER" layoutX="189.0" layoutY="90.0" spacing="15" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-padding: 30;                  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);">
 
-    <!-- Champ Utilisateur -->
-    <HBox spacing="10.0">
-        <Label text="ID Utilisateur:"/>
-        <TextField fx:id="userField" promptText="Entrez l'ID de l'utilisateur"/>
-    </HBox>
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Ajouter une Demande" />
 
-    <!-- Champ Offre -->
-    <HBox spacing="10.0">
-        <Label text="ID de l'Offre:"/>
-        <TextField fx:id="offreField" promptText="Entrez l'ID de l'offre"/>
-    </HBox>
+        <TextField fx:id="userField" promptText="ID Utilisateur" style="-fx-background-color: #FFFFFF; -fx-border-color: #98A695; -fx-border-radius: 8;" />
+        <TextField fx:id="offreField" promptText="ID de l'Offre" style="-fx-background-color: #FFFFFF; -fx-border-color: #98A695; -fx-border-radius: 8;" />
+        <TextField fx:id="statutField" promptText="Statut de la Demande" style="-fx-background-color: #FFFFFF; -fx-border-color: #98A695; -fx-border-radius: 8;" />
+        <DatePicker fx:id="datePicker" style="-fx-background-color: #FFFFFF; -fx-border-color: #CBA979; -fx-border-radius: 8;" />
 
-    <!-- Champ Statut -->
-    <HBox spacing="10.0">
-        <Label text="Statut de la Demande:"/>
-        <TextField fx:id="statutField" promptText="Entrez le statut de la demande"/>
-    </HBox>
+        <Button fx:id="addButton" onAction="#handleAddDemande" style="-fx-background-color: #CBA979; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;" text="Ajouter la Demande" />
 
-    <!-- Sélection de la Date de Demande -->
-    <HBox spacing="10.0">
-        <Label text="Date de la Demande:"/>
-        <DatePicker fx:id="datePicker"/>
-    </HBox>
+    </VBox>
 
-    <!-- Bouton Ajouter Demande -->
-    <Button text="Ajouter la Demande" onAction="#handleAddDemande"
-            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;"/>
-</VBox>
+    <!-- Centering the VBox -->
+    <AnchorPane.topAnchor>100.0</AnchorPane.topAnchor>
+    <AnchorPane.leftAnchor>100.0</AnchorPane.leftAnchor>
+    <AnchorPane.rightAnchor>100.0</AnchorPane.rightAnchor>
+    <AnchorPane.bottomAnchor>100.0</AnchorPane.bottomAnchor>
+
+</AnchorPane>

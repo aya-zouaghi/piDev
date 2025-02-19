@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f8f8f8;"
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
             xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.eventcraft.controllers.DemandeoffreController">
+            fx:controller="org.example.eventcraft.controllers.DemandeoffreController"
+            style="-fx-background-color: #F0C8C6;">
 
     <!-- Top Navigation Bar -->
     <VBox alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="60.0" prefWidth="900.0" spacing="10"
-          style="-fx-background-color: #ffffff; -fx-padding: 10;">
-        <HBox alignment="CENTER_LEFT" spacing="20">
-            <Label style="-fx-font-size: 16; -fx-text-fill: #666666;" text="Accueil"/>
-            <Label style="-fx-font-size: 16; -fx-text-fill: #666666;" text="Événements"/>
-            <Label style="-fx-font-size: 16; -fx-text-fill: #666666;" text="À propos"/>
-            <Label style="-fx-font-size: 16; -fx-text-fill: #666666;" text="Contact"/>
+          style="-fx-background-color: #FFFFFF; -fx-padding: 10; -fx-border-width: 0 0 2 0; -fx-border-color: #CBA979;">
+        <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-padding: 10 20;">
+            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Accueil"/>
+            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Événements"/>
+            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="À propos"/>
+            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Contact"/>
         </HBox>
     </VBox>
 
     <!-- Main Content -->
-    <VBox layoutX="0.0" layoutY="60.0" prefHeight="540.0" prefWidth="900.0" spacing="20" style="-fx-padding: 20;">
+    <VBox layoutX="20.0" layoutY="80.0" prefHeight="500.0" prefWidth="860.0" spacing="20"
+          style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-padding: 30;
+                 -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);">
+
         <!-- Section Title -->
-        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Demandes Offres"/>
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Demandes Offres"/>
 
         <!-- ListView to display Demande Offres -->
-        <ListView fx:id="demandeOffreListView" prefHeight="450.0" prefWidth="860.0"
-                  style="-fx-border-color: #ddd; -fx-background-color: #ffffff;"/>
+        <ListView fx:id="demandeOffreListView" prefHeight="400.0" prefWidth="800.0"
+                  style="-fx-border-color: #DDD; -fx-background-color: #FFFFFF;"/>
 
         <!-- Button to Add New Demande Offre -->
-        <HBox alignment="CENTER_RIGHT" spacing="15">
-            <Button fx:id="addButton" prefWidth="180.0"
-                    style="-fx-background-color: #CBA979; -fx-text-fill: white; -fx-padding: 10px 20px; -fx-border-radius: 5px;"
-                    text="Ajouter Demande Offre" onAction="#handleAddDemandeOffre">
-                <font>
-                    <Font name="Arial" size="14.0"/>
-                </font>
-            </Button>
+        <HBox alignment="CENTER_RIGHT">
+            <Button fx:id="addButton" prefWidth="200.0"
+                    style="-fx-background-color: #CBA979; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-background-radius: 8px;"
+                    text="Ajouter Demande Offre" onAction="#handleAddDemandeOffre"/>
         </HBox>
     </VBox>
+
+    <!-- Centering the Main Box -->
+    <AnchorPane.topAnchor>60.0</AnchorPane.topAnchor>
+    <AnchorPane.leftAnchor>20.0</AnchorPane.leftAnchor>
+    <AnchorPane.rightAnchor>20.0</AnchorPane.rightAnchor>
+    <AnchorPane.bottomAnchor>20.0</AnchorPane.bottomAnchor>
+
 </AnchorPane>

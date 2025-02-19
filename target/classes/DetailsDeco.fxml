@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="732.0" stylesheets="@/styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllors.DetailsDecoController">
+   <children>
+      <Pane layoutX="24.0" layoutY="44.0" prefHeight="398.0" prefWidth="685.0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+         <children>
+            <VBox layoutX="24.0" layoutY="41.0" prefHeight="320.0" prefWidth="445.0" spacing="15" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;  ">
+               <!-- Titre -->
+               <Text style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #4A4A4A; -fx-font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;" text="Détails de la décoration" />
+
+               <!-- Informations -->
+               <VBox prefHeight="130.0" prefWidth="190.0" spacing="10">
+                  <HBox spacing="10">
+                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Nom : " />
+                     <Label fx:id="lblNom" style="-fx-font-size: 18px; -fx-text-fill: #555;" />
+                  </HBox>
+                  <HBox spacing="10">
+                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Type : " />
+                     <Label fx:id="lblType" style="-fx-font-size: 18px; -fx-text-fill: #555;" />
+                  </HBox>
+                  <HBox spacing="10">
+                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Description : " />
+                     <Label fx:id="lblDescription" style="-fx-font-size: 18px; -fx-text-fill: #555;" />
+                  </HBox>
+                  <HBox spacing="10">
+                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Prix : " />
+                     <Label fx:id="lblPrix" style="-fx-font-size: 18px; -fx-text-fill: #555;" />
+                  </HBox>
+                  <HBox spacing="10">
+                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Stock : " />
+                     <Label fx:id="lblStock" style="-fx-font-size: 18px; -fx-text-fill: #555;" />
+                  </HBox>
+               </VBox>
+               <Button fx:id="btnCommander" alignment="CENTER" contentDisplay="CENTER" onAction="#CommanderArticle" styleClass="submit-button" text="Commander" textAlignment="CENTER" />
+            </VBox>
+
+            <!-- Boutons alignés à droite, verticaux -->
+            <VBox alignment="CENTER_RIGHT" layoutX="482.0" layoutY="162.0" prefHeight="180.0" prefWidth="138.0" spacing="10">
+               <Button onAction="#supprimerDeco" prefHeight="26.0" prefWidth="109.0" styleClass="submit-button" text="Supprimer" />
+               <Button onAction="#modifierDetails" prefHeight="26.0" prefWidth="110.0" styleClass="submit-button" text="Modifier" />
+               <Button onAction="#AnnulerDetails" prefHeight="26.0" prefWidth="110.0" styleClass="submit-button" text="Annuler" />
+            </VBox>
+            <ImageView fitHeight="100.0" fitWidth="129.0" layoutX="499.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

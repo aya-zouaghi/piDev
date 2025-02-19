@@ -1,0 +1,7 @@
+Controllors\CommandeListCellController.class
+Controllors\CommanderDecoController.class
+Controllors\AfficherDecorationController.class
+Controllors\AfficherCommandeController.class
+Controllors\ModifierDecorationController.class
+Controllors\AjouterDecorationController.class
+Controllors\DetailsCommandeController.class

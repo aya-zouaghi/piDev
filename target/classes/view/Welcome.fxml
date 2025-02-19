@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eventcraft.controller.WelcomeController">
+    <left>
+        <VBox alignment="CENTER" spacing="20.0" styleClass="left-panel">
+            <ImageView fx:id="logo" styleClass="logo" fitWidth="150" fitHeight="150" preserveRatio="true">
+                <image>
+                    <Image url="/images/logo.png"/>
+                </image>
+            </ImageView>
+            <Label text="Event Craft" styleClass="company-label"/>
+            <Label text="Your Event Management Solution" styleClass="slogan-label"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" styleClass="form-panel">
+            <Label fx:id="welcomeLabel" styleClass="title-label"/>
+            <Button text="Profile" onAction="#handleProfile" styleClass="submit-button"/>
+            <Button text="Events" onAction="#handleEvents" styleClass="submit-button"/>
+            <Button text="Offers" onAction="#handleOffers" styleClass="submit-button"/>
+            <Button text="Salle" onAction="#handleSalle" styleClass="submit-button"/>
+            <Button text="Decorations" onAction="#handleDecorations" styleClass="submit-button"/>
+            <Button text="Forum" onAction="#handleForum" styleClass="submit-button"/>
+        </VBox>
+    </center>
+</BorderPane>

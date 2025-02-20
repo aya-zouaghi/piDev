@@ -4,8 +4,9 @@ import java.time.LocalDate;
 
 public class Evenement {
     private int id_evenement;
-    private String titre ,description_evenement	,image,location;
-    private LocalDate date_debut ,date_fin;
+    private String titre, description_evenement, image, location;
+    private LocalDate date_debut, date_fin;
+    private int salleId;
     public Evenement() {
     }
 
@@ -19,14 +20,28 @@ public class Evenement {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
     }
-    public Evenement( String titre, String description_evenement, String image, String location, LocalDate date_debut, LocalDate date_fin) {
+    public Evenement(String titre, String description_evenement, String image, String location, LocalDate date_debut, LocalDate date_fin, int salleId) {
         this.titre = titre;
         this.description_evenement = description_evenement;
         this.image = image;
         this.location = location;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
+        this.salleId = salleId;
     }
+
+    public Evenement(int id_evenement, String titre, String description_evenement, String image, String location, LocalDate date_debut, LocalDate date_fin, int salleId) {
+        this.id_evenement = id_evenement;
+        this.titre = titre;
+        this.description_evenement = description_evenement;
+        this.image = image;
+        this.location = location;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.salleId = salleId;
+    }
+
+
     public int getId_evenement() {
         return id_evenement;
     }
@@ -53,6 +68,10 @@ public class Evenement {
 
     public LocalDate getDate_fin() {
         return date_fin;
+    }
+
+    public int getsalleId() {
+        return salleId;
     }
 
     // Setters
@@ -84,7 +103,11 @@ public class Evenement {
         this.date_fin = date_fin;
     }
 
-    // Méthode toString pour afficher l'événement
+
+    public void setSalleId(int salleId) {
+        this.salleId = salleId;
+    }
+
     @Override
     public String toString() {
         return "Evenement{" +

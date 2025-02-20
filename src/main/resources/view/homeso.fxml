@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.image.Image?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.ColumnConstraints?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.RowConstraints?>
+        <?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="/styles/styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.eventcraft.controller.HomeViewController">
+<left>
+    <VBox spacing="10.0" styleClass="left-panel">
+        <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </BorderPane.margin>
+        <ImageView fx:id="logoImage" fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
+            <image>
+                <Image url="@/images/logo.png" />
+            </image>
+        </ImageView>
+        <Button onAction="#handleEvenement" styleClass="submit-button" text="Gérer Evénements" />
+        <Button onAction="#handleParticipant" styleClass="submit-button" text="Gérer Participants" />
+
+
+
+    </VBox>
+</left>
+<center>
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <Button onAction="#handleQuitter" styleClass="submit-button" text="Quitter" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="8" />
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+</center>
+</BorderPane>
+

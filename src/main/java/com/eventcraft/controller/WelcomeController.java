@@ -54,7 +54,7 @@ public class WelcomeController {
 
     @FXML
     private void handleEvents() {
-        navigateTo("/view/events.fxml");
+        navigateTo("/view/homeso.fxml");
     }
 
     @FXML
@@ -74,7 +74,7 @@ public class WelcomeController {
 
     @FXML
     private void handleForum() {
-        navigateTo("/view/forum.fxml");
+        navigateTo("/view/forum-list.fxml");
     }
 
     private void navigateTo(String fxmlPath) {

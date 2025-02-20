@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="15.0"
+      xmlns:fx="http://javafx.com/fxml/1"
+      prefWidth="800" prefHeight="600"
+      fx:controller="com.eventcraft.controller.ForumListController">
+
+    <Button fx:id="backButton" text="⬅ Retour" onAction="#onBackButtonClick" styleClass="button button-blue"/>
+    <Button fx:id="addButton" text="➕ Ajouter" onAction="#onAddButtonClick" styleClass="button button-green"/>
+
+
+    <ListView fx:id="forumListView"/>
+</VBox>
+

@@ -80,25 +80,25 @@ public class OffreController {
 
     private void handleModifier(Offre offre) {
         try {
-            // Load Modifier FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/modifier.fxml"));
             Parent root = loader.load();
 
-            // Get the ModifierController instance
             ModifierController controller = loader.getController();
-
-            // Pass the selected offer to the ModifierController
             controller.setOffreDetails(offre);
 
-            // Show the Modifier window
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+
+            // Refresh the list when the modification window is closed
+            stage.setOnHidden(event -> loadOffres());
+
             stage.show();
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible d'ouvrir la modification", e.getMessage());
             e.printStackTrace();
         }
     }
+
 
     private void handleSupprimer(Offre offre) {
         try {
@@ -129,16 +129,34 @@ public class OffreController {
     @FXML
     private void handleAddOffre(ActionEvent event) {
         try {
-            // Load the "Ajouter Offre" FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AjoutOffre.fxml"));
             Parent root = loader.load();
 
-            // Open the "Ajouter Offre" window
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+
+            // Refresh the list when the addition window is closed
+            stage.setOnHidden(event1 -> loadOffres());
+
             stage.show();
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible d'ouvrir la page d'ajout", e.getMessage());
+            e.printStackTrace();
         }
     }
+
+    @FXML
+    private void handleBackToHome(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Hello.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow(); // Get current stage
+            stage.setScene(new Scene(root)); // Set new scene
+            stage.setTitle("Accueil"); // Update title
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible de retourner à l'accueil", e.getMessage());
+        }
+    }
+
 }

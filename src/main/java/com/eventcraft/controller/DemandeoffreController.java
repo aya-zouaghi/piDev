@@ -75,22 +75,24 @@ public class DemandeoffreController {
 
     private void handleModifier(DemandeOffre demandeOffre) {
         try {
-            // Load Modifier FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ModifierDemande.fxml"));
             Parent root = loader.load();
-            ModifierDemandeController controller = loader.getController();  // ✅ CORRECT
 
-            // Pass the selected demande to the ModifierController
+            ModifierDemandeController controller = loader.getController();
             controller.setDemandeDetails(demandeOffre);
 
-            // Show the Modifier window
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+
+            // Refresh the list when the modification window is closed
+            stage.setOnHidden(event -> loadDemandeOffres());
+
             stage.show();
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible d'ouvrir la modification", e.getMessage());
         }
     }
+
 
     private void handleSupprimer(DemandeOffre demandeOffre) {
         int idDemande = demandeOffre.getIdDemande();
@@ -127,22 +129,33 @@ public class DemandeoffreController {
     @FXML
     private void handleAddDemandeOffre(ActionEvent event) {
         try {
-            // Load the "Ajouter DemandeOffre" FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AjoutDemande.fxml"));
             Parent root = loader.load();
 
-            // Create a new Stage (window) for the Ajouter Demande page
             Stage stage = new Stage();
-            stage.setTitle("Ajouter Demande Offre");  // You can set the title as needed
+            stage.setTitle("Ajouter Demande Offre");
             stage.setScene(new Scene(root));
+
+            // Refresh the list when the Ajouter window is closed
+            stage.setOnHidden(event1 -> loadDemandeOffres());
+
             stage.show();
-
-            // Optionally, you can close the current window (if needed)
-            Stage currentStage = (Stage) addButton.getScene().getWindow();
-            currentStage.close();
-
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible d'ouvrir la page d'ajout", e.getMessage());
         }
     }
+    @FXML
+    private void handleBackToHome(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Hello.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Accueil");
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible de revenir à l'accueil", e.getMessage());
+        }
+    }
+
 }

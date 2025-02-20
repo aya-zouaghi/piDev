@@ -13,10 +13,6 @@
     <VBox alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="60.0" prefWidth="900.0" spacing="10"
           style="-fx-background-color: #FFFFFF; -fx-padding: 10; -fx-border-width: 0 0 2 0; -fx-border-color: #CBA979;">
         <HBox alignment="CENTER_LEFT" spacing="30" style="-fx-padding: 10 20;">
-            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Accueil"/>
-            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Événements"/>
-            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="À propos"/>
-            <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #CBA979;" text="Contact"/>
         </HBox>
     </VBox>
 
@@ -39,6 +35,13 @@
                     text="Ajouter Demande Offre" onAction="#handleAddDemandeOffre"/>
         </HBox>
     </VBox>
+    <!-- Button to go back to Home -->
+    <HBox alignment="CENTER_LEFT">
+        <Button fx:id="backButton" prefWidth="150.0"
+                style="-fx-background-color: #A5A5A5; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-background-radius: 8px;"
+                text="Retour à l'accueil" onAction="#handleBackToHome"/>
+    </HBox>
+
 
     <!-- Centering the Main Box -->
     <AnchorPane.topAnchor>60.0</AnchorPane.topAnchor>

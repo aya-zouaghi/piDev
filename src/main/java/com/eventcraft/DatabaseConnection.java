@@ -11,7 +11,6 @@ public class DatabaseConnection {
 
     public static Connection getConnection() {
         try {
-            // Load MySQL JDBC Driver (optional, JDBC 4+ loads automatically)
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Connect to database
             return DriverManager.getConnection(URL, USER, PASSWORD);

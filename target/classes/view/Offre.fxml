@@ -13,10 +13,6 @@
     <!-- Top Navigation Bar -->
     <VBox alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="60.0" prefWidth="900.0" spacing="10" style="-fx-background-color: #D7B29D; -fx-padding: 10;">
         <HBox alignment="CENTER_LEFT" spacing="20">
-            <Label style="-fx-font-size: 16; -fx-text-fill: #B0A99F;" text="Accueil" />
-            <Label style="-fx-font-size: 16; -fx-text-fill: #B0A99F;" text="Événements" />
-            <Label style="-fx-font-size: 16; -fx-text-fill: #B0A99F;" text="À propos" />
-            <Label style="-fx-font-size: 16; -fx-text-fill: #B0A99F;" text="Contact" />
         </HBox>
     </VBox>
 
@@ -45,4 +41,7 @@
             </Button>
         </HBox>
     </VBox>
+    <Button fx:id="backButton" text="Retour" onAction="#handleBackToHome"
+            style="-fx-background-color: #B0A99F; -fx-text-fill: white; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+
 </AnchorPane>

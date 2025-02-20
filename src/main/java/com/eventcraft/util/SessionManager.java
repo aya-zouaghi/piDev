@@ -20,6 +20,10 @@ public class SessionManager {
         return currentUser;
     }
 
+    public static int getUserId() {
+        return currentUser != null ? currentUser.getIdUser() : -1; // Returns -1 if no user is logged in
+    }
+
     public static String getUserRole() {
         return currentUser != null ? currentUser.getRole() : null;
     }
@@ -44,6 +48,8 @@ public class SessionManager {
     private static void saveSessionToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(SESSION_FILE))) {
             if (currentUser != null) {
+                writer.write("UserID: " + currentUser.getIdUser());
+                writer.newLine();
                 writer.write("Username: " + currentUser.getNom() + " " + currentUser.getPrenom());
                 writer.newLine();
                 writer.write("Role: " + currentUser.getRole());
@@ -58,10 +64,13 @@ public class SessionManager {
     private static void loadSessionFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(SESSION_FILE))) {
             String line;
+            int userId = -1;
             String username = null;
             String role = null;
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith("Username:")) {
+                if (line.startsWith("UserID:")) {
+                    userId = Integer.parseInt(line.substring("UserID: ".length()));
+                } else if (line.startsWith("Username:")) {
                     username = line.substring("Username: ".length());
                 } else if (line.startsWith("Role:")) {
                     role = line.substring("Role: ".length());
@@ -69,6 +78,7 @@ public class SessionManager {
             }
             if (username != null && role != null) {
                 currentUser = new User();
+                currentUser.setIdUser(userId);
                 currentUser.setNom(username.split(" ")[0]);
                 currentUser.setPrenom(username.split(" ")[1]);
                 currentUser.setRole(role);
@@ -86,15 +96,11 @@ public class SessionManager {
         }
     }
 
-
-    // Method to set the current user (e.g., after login)
     public static void setCurrentUser(User user) {
         currentUser = user;
     }
 
-    // Method to get the current user
     public static User getCurrentUser() {
         return currentUser;
     }
-
 }

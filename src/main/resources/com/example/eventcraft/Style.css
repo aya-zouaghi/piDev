@@ -1,0 +1,134 @@
+/* General Styles */
+.root {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-base: #f4f4f4;
+}
+
+/* BorderPane Styles */
+.border-pane {
+    -fx-background-color: #ffffff;
+    -fx-fill-height: true;
+}
+
+/* VBox Styles */
+.vbox {
+    -fx-spacing: 10;
+    -fx-padding: 20;
+}
+.vbox, .hbox {
+    -fx-fill-height: true;
+}
+
+/* Button Styles */
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #000000 transparent;
+    -fx-border-width: 0 0 2px 0;
+    -fx-padding: 10;
+    transition-duration: 0.4s;
+    color: white;
+}
+
+.button:hover {
+    -fx-background-color: #8D598F;
+    -fx-text-fill: white;
+    background-color: #FFFFFF;
+    color: white;
+    width: 100%;
+}
+
+/* Button with specific style */
+.button-add-salle {
+    -fx-background-color: #8D598F;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10;
+    width: 100%;
+}
+
+/* ImageView Styles */
+.image-view {
+    -fx-fit-height: 80.0;
+    -fx-fit-width: 80.0;
+}
+
+/* HBox Styles */
+.hbox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    width: 100%;
+}
+
+/* Header Styles (for HBox) */
+.header-hbox {
+    -fx-background-color: #98A695;
+    -fx-padding: 10;
+}
+
+/* VBox for form fields */
+.form-vbox {
+    -fx-padding: 20;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+/* TextField Styles */
+.text-field {
+    -fx-padding: 10;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+}
+
+/* CheckBox Styles */
+.check-box {
+    -fx-padding: 10;
+}
+
+/* ListView Styles */
+.list-view {
+    -fx-text-align: center;
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-color: #FFFFFF;
+    -fx-max-height: Infinity;
+    -fx-min-height: 0;
+}
+
+.content {
+    -fx-padding: 16px;
+    -fx-text-align: center;
+    -fx-background-color: #f1f1f1;
+}
+
+/* Specific Styles for VBox */
+.form-vbox {
+    -fx-spacing: 10;
+    -fx-background-color: transparent;
+}
+
+/* Button for adding salles */
+.button-add {
+    -fx-background-color: #8D598F;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+}
+
+/* Region for spacing */
+.region {
+    -fx-hgrow: always;
+}
+
+.card {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container {
+    padding: 2px 16px;
+}

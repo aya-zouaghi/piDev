@@ -1,0 +1,152 @@
+
+/* Couleurs de base */
+.root {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Styles pour les boutons */
+.button {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+/* Style général pour le VBox principal */
+/* Style général pour le VBox principal */
+.vbox {
+    -fx-padding: 30;
+    -fx-background-color: #f4f4f4;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+
+/* Style pour le titre */
+.label-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Style pour les labels */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #34495e;
+}
+
+/* Style pour les DatePickers et ComboBox */
+.date-picker, .combo-box {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+/* Style pour le TextArea */
+.text-area {
+    -fx-font-size: 14px;
+    -fx-pref-height: 100;
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+/* Style pour le bouton */
+.button {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 30px;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-background-color: #27ae60;
+}
+
+.button:hover {
+    -fx-background-color: #2ecc71;
+}
+
+/* Style pour les labels des dates */
+.label-date {
+    -fx-font-size: 16px;
+    -fx-text-fill: #34495e;
+}
+
+/* Style pour les DatePickers */
+.date-picker {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 30px;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+}
+
+/* Style spécifique pour le bouton "Réserver" */
+.button-reserver {
+    -fx-background-color: #27ae60;
+    -fx-effect: dropshadow(gaussian, #2ecc71, 3, 0, 0, 0);
+}
+
+.button-reserver:hover {
+    -fx-background-color: #2ecc71;
+}
+
+/* Style spécifique pour le bouton "Annuler" */
+.button-annuler {
+    -fx-background-color: #e74c3c;
+    -fx-effect: dropshadow(gaussian, #c0392b, 3, 0, 0, 0);
+}
+
+.button-annuler:hover {
+    -fx-background-color: #c0392b;
+}
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+/* Styles pour les labels */
+.label {
+    -fx-font-family: 'Arial';
+}
+
+/* Styles pour la navigation latérale */
+.sidenav {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+/* Styles pour l'image de la salle */
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+/* Fond de la barre des menus */
+HBox {
+    -fx-background-color: #333;
+    -fx-padding: 10;
+}
+
+/* Fond des boutons */
+Button {
+    -fx-background-color: #444;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 10px 10px 40px;
+
+}
+
+Button:hover {
+    -fx-background-color: #555;
+}
+
+/* Image du logo */
+ImageView {
+    -fx-padding: 0 0 20 0;
+}

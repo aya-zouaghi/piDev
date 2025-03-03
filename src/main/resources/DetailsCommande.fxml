@@ -48,6 +48,7 @@
             <VBox alignment="CENTER_RIGHT" layoutX="423.0" layoutY="128.0" prefHeight="180.0" prefWidth="138.0" spacing="10">
                <Button onAction="#SupprimerCommande" prefHeight="30.0" prefWidth="110.0" styleClass="submit-button" text="Supprimer" />
                <Button onAction="#retourner" prefHeight="30.0" prefWidth="110.0" styleClass="submit-button" text="Annuler" />
+               <Button mnemonicParsing="false" onAction="#StatistiqueButton" prefHeight="30.0" prefWidth="110.0" styleClass="submit-button" text="Statistique" />
             </VBox>
          </children>
       </Pane>

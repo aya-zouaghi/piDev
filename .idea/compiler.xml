@@ -6,17 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< Updated upstream
         <module name="Pidev_eventcraft" />
       </profile>
     </annotationProcessing>
-=======
-        <module name="eventcraft" />
-      </profile>
-    </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="demo" target="1.8" />
-    </bytecodeTargetLevel>
->>>>>>> Stashed changes
   </component>
 </project>

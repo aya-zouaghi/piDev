@@ -23,14 +23,10 @@ public class DetailsCommandeController {
     private Label lblDecoration;
     @javafx.fxml.FXML
     private Label lblQuantite;
-    @javafx.fxml.FXML
-    private Button btnSupprimer;
 
     private CommandeDecoration selectedCommande;
     private ServiceCommandeDeco serviceCommandeDeco = new ServiceCommandeDeco();
     private AfficherCommandeController afficherController;
-    @javafx.fxml.FXML
-    private Button retour;
 
     @javafx.fxml.FXML
     public void SupprimerCommande(ActionEvent actionEvent) {
@@ -96,6 +92,27 @@ public class DetailsCommandeController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void StatistiqueButton(ActionEvent actionEvent) {
+        try {
+            // Charger le fichier FXML pour la vue des statistiques
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/StatistiqueCommande.fxml"));
+            Parent root = loader.load();
+
+            // Créer une nouvelle scène avec le fichier FXML chargé
+            Scene scene = new Scene(root);
+
+            // Récupérer la fenêtre principale (stage) et changer la scène
+            Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Gérer l'exception si le fichier FXML n'est pas trouvé
         }
     }
 }

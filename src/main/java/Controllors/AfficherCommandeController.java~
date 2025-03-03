@@ -96,12 +96,13 @@ public class AfficherCommandeController {
             AfficherDecorationController decoController = loader.getController();
             decoController.rafraichirAffichage(); // Appel de la méthode de rafraîchissement
 
-            // Récupérer la scène actuelle et changer son contenu sans créer une nouvelle scène
-            Scene currentScene = liste_Commande.getScene(); // Utiliser liste_Commande pour obtenir la scène actuelle
-            currentScene.setRoot(root); // Mettre à jour le contenu de la scène
-            Stage stage = (Stage) currentScene.getWindow(); // Récupérer la fenêtre (Stage) actuelle
-            stage.setTitle("Liste des Décorations"); // Mettre à jour le titre de la fenêtre
+            // Récupérer la scène actuelle et changer son contenu
+            Stage stage = (Stage) liste_Commande.getScene().getWindow(); // Utiliser liste_Commande pour obtenir la scène
+            stage.setScene(new Scene(root));
+            stage.setTitle("Liste des Décorations");
+            stage.show();
         } catch (IOException e) {
             afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Impossible de charger la page des décorations : " + e.getMessage());
-        }}
+        }
+    }
 }

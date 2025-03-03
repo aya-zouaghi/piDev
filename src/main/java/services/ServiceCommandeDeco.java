@@ -29,6 +29,12 @@ public class ServiceCommandeDeco implements IService<CommandeDecoration> {
             int rowsAffected = ps.executeUpdate();  // Cette ligne renvoie le nombre de lignes affectées
             if (rowsAffected > 0) {
                 System.out.println("✅ Commande de décoration ajoutée avec succès !");
+                // Mettre à jour le stock de la décoration
+                Decoration decoration = commandeDecoration.getDecoration();
+                int newStock = decoration.getStock() - commandeDecoration.getQuantité();
+                updateStock(decoration.getId_decor(), newStock);
+                System.out.println("🎯 Mise à jour du stock pour l'article " + decoration.getId_decor() + " : nouveau stock = " + newStock);
+
             } else {
                 System.out.println("❌ Aucun changement dans la base de données.");
             }
@@ -93,7 +99,7 @@ public class ServiceCommandeDeco implements IService<CommandeDecoration> {
         String sql = "SELECT commande_decoration.id_commande, commande_decoration.quantité, " +
                 "commande_decoration.date_commande, commande_decoration.prix, " +
                 "decoration.id_decor, decoration.nom_decor, decoration.type_decor, " +
-                "decoration.description_decor, decoration.prix, decoration.stock " +
+                "decoration.description_decor, decoration.prix, decoration.stock, decoration.imageDeco " +
                 "FROM commande_decoration " +
                 "INNER JOIN decoration ON commande_decoration.decoration = decoration.id_decor";
 
@@ -108,6 +114,7 @@ public class ServiceCommandeDeco implements IService<CommandeDecoration> {
                         rs.getString("description_decor"),
                         rs.getFloat("prix"),
                         rs.getInt("stock"),
+                        rs.getString("imageDeco"),
                         null // Ajoute l'utilisateur si nécessaire
                 );
 
@@ -154,6 +161,7 @@ public class ServiceCommandeDeco implements IService<CommandeDecoration> {
                     rs.getString("description_decor"),
                     rs.getFloat("prix"),
                     rs.getInt("stock"),
+                    rs.getString("imageDeco"),
                     null // Vous pouvez ajouter l'utilisateur si nécessaire
             );
 
@@ -192,6 +200,7 @@ public class ServiceCommandeDeco implements IService<CommandeDecoration> {
                         resultSet.getString("description_decor"),
                         resultSet.getFloat("prix"),
                         resultSet.getInt("stock"),
+                        resultSet.getString("imageDeco"),
                         null // Vous pouvez ajouter l'utilisateur si nécessaire
                 );
 
@@ -209,4 +218,17 @@ public class ServiceCommandeDeco implements IService<CommandeDecoration> {
         }
         return null;
     }
+
+    private void updateStock(int idDecor, int newStock) throws SQLException {
+        String sql = "UPDATE decoration SET stock = ? WHERE id_decor = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, newStock);
+            ps.setInt(2, idDecor);
+            int rowsUpdated = ps.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("✅ Stock mis à jour pour l'article " + idDecor);
+            } else {
+                System.out.println("❌ Échec de la mise à jour du stock pour l'article " + idDecor);
+            }
+        }}
 }

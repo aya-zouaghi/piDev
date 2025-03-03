@@ -15,7 +15,11 @@ import services.ServiceCommandeDeco;
 
 import java.io.IOException;
 import java.time.LocalDate;
-
+import com.stripe.Stripe;
+import com.stripe.model.checkout.Session;
+import com.stripe.param.checkout.SessionCreateParams;
+import java.awt.Desktop;
+import java.net.URI;
 public class CommanderDecoController {
     @javafx.fxml.FXML
     private Label lblNom;
@@ -33,13 +37,17 @@ public class CommanderDecoController {
     private ServiceCommandeDeco serviceCommande = new ServiceCommandeDeco();
     @javafx.fxml.FXML
     private Button AfficherCommande;
+    private AfficherDecorationController afficherDecorationController;
+    private static final int STOCK_FAIBLE_SEUIL = 5;
 
     public void setDecoration(Decoration selectedDeco) {
         this.selectedDeco = selectedDeco;
         lblNom.setText(selectedDeco.getNom_decor());
         lblPrix.setText(String.format("%.2f TND", selectedDeco.getPrix()));
     }
-
+    public void setAfficherDecorationController(AfficherDecorationController controller) {
+        this.afficherDecorationController = controller;
+    }
     @javafx.fxml.FXML
     public void AnnulerCommande(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAnnuler.getScene().getWindow();
@@ -69,53 +77,83 @@ public class CommanderDecoController {
                 return;
             }
 
+            double montantTotal = selectedDeco.getPrix() * quantite;
 
-        serviceCommande.ajouter(new CommandeDecoration(
+            serviceCommande.ajouter(new CommandeDecoration(
 
-                quantite,
-                LocalDate.now(),
-                selectedDeco.getPrix() * quantite,
+                    quantite,
+                    LocalDate.now(),
+                    selectedDeco.getPrix() * quantite,
 
-                selectedDeco
-        ));
+                    selectedDeco
+            ));
+            int nouveauStock = selectedDeco.getStock() - quantite;
+            selectedDeco.setStock(nouveauStock);
 
-        showAlert("Succès", "Commande passée avec succès !", Alert.AlertType.INFORMATION);
+            // 🔥 Rafraîchir la liste des décorations
+            if (afficherDecorationController != null) {
+                afficherDecorationController.rafraichirAffichage();
+            }
+            // ✅ Confirmation
+            showAlert("Succès", "Commande passée avec succès ! Stock restant : " + nouveauStock, Alert.AlertType.INFORMATION);
+
+            // ✅ Envoi des alertes selon le niveau de stock
+            if (nouveauStock == 0) {
+                envoyerNotification("Rupture de stock", "L'article " + selectedDeco.getNom_decor() + " est maintenant en rupture de stock !");
+            } else if (nouveauStock > 0 && nouveauStock <= STOCK_FAIBLE_SEUIL) {
+                envoyerNotification("Stock faible", "Attention ! Le stock de " + selectedDeco.getNom_decor() + " est faible : " + nouveauStock + " restant.");
+            }
+
+
 
             // 🚀 Charger la page d'affichage des commandes après validation
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCommande.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/payer.fxml"));
             Parent root = loader.load();
+            payerController payerCtrl = loader.getController();
+            payerCtrl.setMontant(montantTotal);
 
             Stage stage = (Stage) btnCommander.getScene().getWindow();
             stage.setScene(new javafx.scene.Scene(root));
             stage.show();
-    } catch (NumberFormatException e) {
-        showAlert("Erreur", "Veuillez entrer un nombre valide.", Alert.AlertType.WARNING);
-    } catch (Exception e) {
-        showAlert("Erreur", "Une erreur est survenue : " + e.getMessage(), Alert.AlertType.ERROR);
-    }
+        } catch (NumberFormatException e) {
+            showAlert("Erreur", "Veuillez entrer un nombre valide.", Alert.AlertType.WARNING);
+        } catch (Exception e) {
+            showAlert("Erreur", "Une erreur est survenue : " + e.getMessage(), Alert.AlertType.ERROR);
+        }
 
     }
-        private void showAlert(String title, String message, Alert.AlertType alertType) {
-            Alert alert = new Alert(alertType);
-            alert.setTitle(title);
-            alert.setHeaderText(null);
-            alert.setContentText(message);
-            alert.showAndWait();
-        }
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setWidth(500);
+        alert.setHeight(500);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
     @javafx.fxml.FXML
     public void AfficherCommande(ActionEvent actionEvent) {
-       try{
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCommande.fxml"));
-        Parent root = loader.load();
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCommande.fxml"));
+            Parent root = loader.load();
 
-        // Remplacer la scène actuelle avec la nouvelle page
-        Stage stage = (Stage) AfficherCommande.getScene().getWindow();
-        stage.setScene(new javafx.scene.Scene(root));
-        stage.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-        showAlert("Erreur", "Impossible de retourner à la liste des commandes.", Alert.AlertType.ERROR);
+            // Remplacer la scène actuelle avec la nouvelle page
+            Stage stage = (Stage) AfficherCommande.getScene().getWindow();
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Erreur", "Impossible de retourner à la liste des commandes.", Alert.AlertType.ERROR);
+        }
     }
+    private void envoyerNotification(String titre, String message) {
+        // Exemple simple d'une notification avec une alerte
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titre);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
+
 }

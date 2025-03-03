@@ -1,7 +1,14 @@
+Controllors\StatistiqueCommandeController.class
 Controllors\CommandeListCellController.class
 Controllors\CommanderDecoController.class
 Controllors\AfficherDecorationController.class
+Controllors\payerController.class
+services\ServiceStatistiqueCommande.class
+services\ServicePayment.class
 Controllors\AfficherCommandeController.class
 Controllors\ModifierDecorationController.class
 Controllors\AjouterDecorationController.class
+Controllors\CustomNotification.class
+services\APIpayment.class
+entities\Payment.class
 Controllors\DetailsCommandeController.class

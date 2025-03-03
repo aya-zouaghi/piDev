@@ -17,33 +17,37 @@ public class ServiceDecoration implements IService<Decoration>{
     }
     @Override
     public void ajouter(Decoration decoration) throws SQLException {
-        String sql = "INSERT INTO `decoration` (`nom_decor`, `type_decor`, `description_decor`, `prix`, `stock`) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `decoration` (`nom_decor`, `type_decor`, `description_decor`, `prix`, `stock`, `imageDeco`) VALUES (?, ?, ?, ?, ?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, decoration.getNom_decor());
         ps.setString(2, decoration.getType_decor());
         ps.setString(3, decoration.getDescription_decor());
         ps.setFloat(4, decoration.getPrix());
         ps.setInt(5, decoration.getStock());
+        ps.setString(6, decoration.getImageDeco());
+
 
         ps.executeUpdate();
         System.out.println("Décoration ajoutée");
     }
 
     public void ajouterDeco(Decoration decoration) throws SQLException {
-        String sql = "INSERT INTO `decoration` (`nom_decor`, `type_decor`, `description_decor`, `prix`, `stock`,`user_id`) VALUES (?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO `decoration` (`nom_decor`, `type_decor`, `description_decor`, `prix`, `stock`,`user_id`, `imageDeco`) VALUES (?, ?, ?, ?, ?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, decoration.getNom_decor());
         ps.setString(2, decoration.getType_decor());
         ps.setString(3, decoration.getDescription_decor());
         ps.setFloat(4, decoration.getPrix());
         ps.setInt(5, decoration.getStock());
-        ps.setInt(6, decoration.getUser().getId_user());
+        ps.setString(6, decoration.getImageDeco());
+
+        ps.setInt(7, decoration.getUser().getId_user());
         ps.executeUpdate();
         System.out.println("Décoration ajoutée");
     }
     @Override
     public void modifier(Decoration decoration) throws SQLException {
-        String req = "UPDATE decoration SET nom_decor=?, type_decor=?, description_decor=?, prix=?, stock=? WHERE id_decor=?";
+        String req = "UPDATE decoration SET nom_decor=?, type_decor=?, description_decor=?, prix=?, stock=? ,imageDeco=? WHERE id_decor=?";
 
         try {
             PreparedStatement pst = connection.prepareStatement(req);
@@ -52,7 +56,8 @@ public class ServiceDecoration implements IService<Decoration>{
             pst.setString(3, decoration.getDescription_decor());
             pst.setFloat(4, decoration.getPrix());
             pst.setInt(5, decoration.getStock());
-            pst.setInt(6, decoration.getId_decor()); // Assurez-vous que `id_decor` est bien défini
+            pst.setString(6, decoration.getImageDeco());
+            pst.setInt(7, decoration.getId_decor());
 
             int rowsUpdated = pst.executeUpdate();
             if (rowsUpdated == 0) {
@@ -78,7 +83,7 @@ public class ServiceDecoration implements IService<Decoration>{
         }
 
         // Mettre à jour la décoration
-        String sql = "UPDATE `decoration` SET `nom_decor`=?, `type_decor`=?, `description_decor`=?, `prix`=?, `stock`=?, `user_id`=? WHERE `id_decor`=?";
+        String sql = "UPDATE `decoration` SET `nom_decor`=?, `type_decor`=?, `description_decor`=?, `prix`=?, `stock`=?, `user_id`=? WHERE `id_decor`=?, `imageDeco`=? WHERE `id_decor`=?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, decoration.getNom_decor());
         ps.setString(2, decoration.getType_decor());
@@ -86,7 +91,9 @@ public class ServiceDecoration implements IService<Decoration>{
         ps.setFloat(4, decoration.getPrix());
         ps.setInt(5, decoration.getStock());
         ps.setInt(6, decoration.getUser().getId_user()); // user_id
-        ps.setInt(7, decoration.getId_decor()); // id_decor
+        ps.setString(7, decoration.getImageDeco());
+
+        ps.setInt(8, decoration.getId_decor()); // id_decor
         ps.executeUpdate();
         System.out.println("Décoration modifiée");
     }
@@ -117,7 +124,9 @@ public class ServiceDecoration implements IService<Decoration>{
                         rs.getString("type_decor"),
                         rs.getString("description_decor"),
                         rs.getFloat("prix"),
-                        rs.getInt("stock")
+                        rs.getInt("stock"),
+                        rs.getString("imageDeco")
+
                 ));
             }
 
@@ -155,7 +164,9 @@ public class ServiceDecoration implements IService<Decoration>{
                     rs.getString("description_decor"),
                     rs.getFloat("prix"),
                     rs.getInt("stock"),
+                    rs.getString("imageDeco"),
                     user
+
             ));
         }
         return decorations;
@@ -173,7 +184,8 @@ public class ServiceDecoration implements IService<Decoration>{
                         resultSet.getString("type_decor"),
                         resultSet.getString("description_decor"),
                         resultSet.getFloat("prix"),
-                        resultSet.getInt("stock")
+                        resultSet.getInt("stock"),
+                        resultSet.getString("imageDeco")
 
                 );
             }

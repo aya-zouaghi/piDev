@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -11,59 +12,77 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="832.0" stylesheets="@/styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllors.ModifierDecorationController">
+<AnchorPane prefHeight="700.0" prefWidth="970.0" stylesheets="@/styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllors.ModifierDecorationController">
    <children>
       <!-- Conteneur principal avec style identique à DetailsDecoController -->
-      <Pane layoutX="24.0" layoutY="44.0" prefHeight="442.0" prefWidth="786.0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <Pane layoutX="24.0" layoutY="44.0" prefHeight="600.0" prefWidth="933.0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <!-- Logo ImageView ajouté -->
-            <ImageView fitHeight="92.0" fitWidth="119.0" layoutX="444.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/logo.png" />
-               </image>
-            </ImageView>
-            <VBox layoutX="24.0" layoutY="41.0" prefHeight="320.0" prefWidth="445.0" spacing="15" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;">
-               <HBox spacing="10">
-               <!-- Titre -->
-               <Text style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #4A4A4A; -fx-font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;" text="Modifier les détails d'un article de décoration" />
-                  <!-- Logo ImageView ajouté -->
-                  <ImageView fitHeight="92.0" fitWidth="119.0" layoutX="444.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/logo.png" />
-                     </image>
-                  </ImageView>
-               </HBox>
+            <VBox layoutX="24.0" layoutY="86.0" prefHeight="479.0" prefWidth="667.0" spacing="15" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;">
+               <HBox spacing="10" />
                <!-- Formulaire -->
-               <VBox spacing="10">
+               <VBox prefHeight="391.0" prefWidth="579.0" spacing="10">
                   <HBox spacing="10">
-                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Nom :" />
-                     <TextField fx:id="md_nom" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;" />
+                     <Label prefHeight="27.0" prefWidth="110.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Nom :">
+                        <HBox.margin>
+                           <Insets top="20.0" />
+                        </HBox.margin></Label>
+                     <TextField fx:id="md_nom" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;">
+                        <HBox.margin>
+                           <Insets top="20.0" />
+                        </HBox.margin></TextField>
                   </HBox>
                   <HBox spacing="10">
-                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Type :" />
-                     <TextField fx:id="md_type" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;" />
+                     <Label prefHeight="27.0" prefWidth="110.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Type :">
+                        <HBox.margin>
+                           <Insets top="20.0" />
+                        </HBox.margin></Label>
+                     <TextField fx:id="md_type" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;">
+                        <HBox.margin>
+                           <Insets top="20.0" />
+                        </HBox.margin></TextField>
                   </HBox>
                   <HBox spacing="10">
-                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Description :" />
+                     <Label prefHeight="27.0" prefWidth="112.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Description :" />
                      <TextField fx:id="md_description" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;" />
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox spacing="10">
-                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Prix :" />
+                     <Label prefHeight="27.0" prefWidth="111.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Prix :" />
                      <TextField fx:id="md_prix" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;" />
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="0.0" prefWidth="706.0" spacing="10">
-                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Stock :" />
-                     <TextField fx:id="md_stock" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;" />
+                  <HBox prefHeight="96.0" prefWidth="699.0" spacing="10">
+                     <Label prefHeight="27.0" prefWidth="109.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Stock :" />
+                     <TextField fx:id="md_stock" prefHeight="24.0" prefWidth="250.0" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-background-radius: 5px; -fx-border-color: #ccc; -fx-padding: 5px; -fx-alignment: CENTER_LEFT;" />
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </HBox>
                </VBox>
 
             </VBox>
 
-            <!-- Boutons alignés à droite, verticaux -->
-            <VBox alignment="CENTER_RIGHT" layoutX="482.0" layoutY="162.0" prefHeight="180.0" prefWidth="138.0" spacing="10">
-               <Button onAction="#modifier" prefHeight="26.0" prefWidth="110.0" styleClass="submit-button" text="Modifier" />
-               <Button onAction="#Annuler" prefHeight="26.0" prefWidth="110.0" styleClass="submit-button" text="Annuler" />
+                              <!-- Boutons alignés à droite, verticaux -->
+            <VBox alignment="CENTER_RIGHT" layoutX="676.0" layoutY="196.0" prefHeight="180.0" prefWidth="138.0" spacing="10">
+               <Button onAction="#modifier" prefHeight="39.0" prefWidth="124.0" styleClass="submit-button" text="Modifier">
+                  <VBox.margin>
+                     <Insets bottom="20.0" />
+                  </VBox.margin>
+               </Button>
+               <Button onAction="#Annuler" prefHeight="38.0" prefWidth="126.0" styleClass="submit-button" text="Annuler" />
             </VBox>
+            <!-- Logo ImageView ajouté -->
+            <ImageView fitHeight="92.0" fitWidth="119.0" layoutX="745.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+         <!-- Titre -->
+         <Text layoutX="43.0" layoutY="51.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #4A4A4A; -fx-font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;" text="Modifier les détails d'un article de décoration" />
          </children>
       </Pane>
    </children>

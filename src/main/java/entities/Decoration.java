@@ -2,7 +2,7 @@ package entities;
 
 public class Decoration {
     private int id_decor,stock;
-    private String nom_decor,type_decor,description_decor;
+    private String nom_decor,type_decor,description_decor , imageDeco;
     private float prix;
     private Utilisateur user_id;
 
@@ -28,6 +28,28 @@ public class Decoration {
         this.stock = stock;
         this.user_id = user_id;
     }
+    public Decoration(int id_decor,  String nom_decor, String type_decor, String description_decor, float prix ,int stock, String imageDeco,Utilisateur user_id) {
+
+        this.id_decor = id_decor;
+        this.nom_decor = nom_decor;
+        this.type_decor = type_decor;
+        this.description_decor = description_decor;
+        this.prix = prix;
+        this.stock = stock;
+        this.imageDeco = imageDeco;
+        this.user_id = user_id;
+    }
+    public Decoration(int id_decor,  String nom_decor, String type_decor, String description_decor, float prix ,int stock, String imageDeco) {
+
+        this.id_decor = id_decor;
+        this.nom_decor = nom_decor;
+        this.type_decor = type_decor;
+        this.description_decor = description_decor;
+        this.prix = prix;
+        this.stock = stock;
+
+        this.imageDeco = imageDeco;
+    }
 
     public Decoration(String nom_decor, String type_decor, String description_decor, float prix , int stock, Utilisateur user_id ) {
 
@@ -48,6 +70,14 @@ public class Decoration {
 
     }
 
+    public Decoration(String nom_decor, String type_decor, String description_decor, float prix, int stock, String imageDeco) {
+        this.nom_decor = nom_decor;
+        this.type_decor = type_decor;
+        this.description_decor = description_decor;
+        this.prix = prix;
+        this.stock = stock;
+        this.imageDeco = imageDeco;
+    }
 
     public int getId_decor() {
         return id_decor;
@@ -97,6 +127,14 @@ public class Decoration {
     public Utilisateur getUser() {
         return user_id;
     }
+    public String getImageDeco() {
+        return imageDeco;
+    }
+
+    public void setImageDeco(String imageDeco) {
+        this.imageDeco = imageDeco;
+    }
+
 
     public void setuser_id(Utilisateur user_id) {
         this.user_id = user_id;
@@ -112,6 +150,7 @@ public class Decoration {
                 ", description_decor='" + description_decor + '\'' +
                 ", prix=" + prix +
                 ", user_id=" + user_id +
+                ", imageDeco='" + imageDeco + '\'' +
                 '}';
     }
 }

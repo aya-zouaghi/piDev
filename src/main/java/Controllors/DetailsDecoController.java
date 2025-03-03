@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import services.ServiceDecoration;
 
@@ -29,16 +31,31 @@ public class DetailsDecoController {
     private AfficherDecorationController afficherController;
     @javafx.fxml.FXML
     private Button btnCommander;
+    @javafx.fxml.FXML
+    private ImageView imageDeco;
 
     public void setDeco(Decoration selectedDeco) {
         if (selectedDeco != null) {
+            this.selectedDeco = selectedDeco;
             lblNom.setText(selectedDeco.getNom_decor());
             lblType.setText(selectedDeco.getType_decor());
             lblDescription.setText(selectedDeco.getDescription_decor());
             lblPrix.setText(String.valueOf(selectedDeco.getPrix()));
             lblStock.setText(String.valueOf(selectedDeco.getStock()));
         }
+        if (selectedDeco.getImageDeco() != null && !selectedDeco.getImageDeco().isEmpty()) {
+            String imageUrl = "file:src/main/resources/images/" + selectedDeco.getImageDeco(); // Utilisez "file:" pour les chemins locaux
+            try {
+                imageDeco.setImage(new Image(imageUrl));
+            } catch (Exception e) {
+                System.out.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Aucune image trouvée pour cette décoration.");
+        }
     }
+
     public void setSelectedDeco(Decoration selectedDeco) {
         this.selectedDeco = selectedDeco;
 

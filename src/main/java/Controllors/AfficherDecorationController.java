@@ -33,6 +33,9 @@ public class AfficherDecorationController {
     @FXML
     private ListView<Decoration> lv_decoration;
     private static final ServiceDecoration servicedeco = new ServiceDecoration();
+
+    private static final int STOCK_FAIBLE_SEUIL = 5;
+
     @FXML
     void initialize() {
         if (lv_decoration == null) {
@@ -53,6 +56,7 @@ public class AfficherDecorationController {
         try {
             List<Decoration> decos = servicedeco.afficher();
             ObservableList<Decoration> data = FXCollections.observableArrayList(decos);
+
             lv_decoration.setItems(data);
         } catch (SQLException e) {
             System.out.println("aa");
@@ -61,7 +65,10 @@ public class AfficherDecorationController {
     public void rafraichirAffichage() {
         try {
             List<Decoration> decos = servicedeco.afficher();
-            lv_decoration.setItems(FXCollections.observableArrayList(decos));
+            ObservableList<Decoration> data = FXCollections.observableArrayList(decos);
+
+
+            lv_decoration.setItems(data);
         } catch (SQLException e) {
             afficherAlerte(Alert.AlertType.ERROR, "Erreur SQL", "Impossible de rafraîchir l'affichage : " + e.getMessage());
         }
@@ -77,7 +84,10 @@ public class AfficherDecorationController {
     @FXML
     public void ajouterArticle(ActionEvent actionEvent) {
         try {
+
             Parent root = FXMLLoader.load(getClass().getResource("/AjouterDecoration.fxml"));
+            System.out.println(getClass().getResource("/AjouterDecoration.fxml"));
+
             lv_decoration.getScene().setRoot(root);
         } catch (IOException e) {
             afficherAlerte(Alert.AlertType.ERROR, "Erreur de chargement", "Impossible de charger la page d'ajout !");

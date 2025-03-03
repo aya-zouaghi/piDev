@@ -16,7 +16,7 @@
       <Pane layoutX="24.0" layoutY="44.0" prefHeight="600.0" prefWidth="930.0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
             <VBox layoutX="34.0" layoutY="107.0" prefHeight="320.0" prefWidth="445.0" spacing="15" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;  ">
-               <ImageView fx:id="imageDeco" fitHeight="300.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fx:id="imageDeco" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
 
                <!-- Informations -->
                <VBox prefHeight="130.0" prefWidth="190.0" spacing="10">

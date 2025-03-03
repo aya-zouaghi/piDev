@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -11,6 +12,12 @@ target/
 *.iws
 *.iml
 *.ipr
+=======
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+>>>>>>> Stashed changes
 
 ### Eclipse ###
 .apt_generated
@@ -20,6 +27,12 @@ target/
 .settings
 .springBeans
 .sts4-cache
+<<<<<<< Updated upstream
+=======
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+>>>>>>> Stashed changes
 
 ### NetBeans ###
 /nbproject/private/
@@ -27,9 +40,12 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+<<<<<<< Updated upstream
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+=======
+>>>>>>> Stashed changes
 
 ### VS Code ###
 .vscode/

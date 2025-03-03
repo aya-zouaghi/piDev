@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="425.0" prefWidth="684.0" stylesheets="@/styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eventcraft.controller.AjouterDecorationController">
+   <children>
+      <Pane layoutX="24.0" layoutY="30.0"  AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+         <children>
+            <!-- Logo ImageView -->
+            <ImageView fitHeight="85.0" fitWidth="126.0" layoutX="517.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/images/logo.png" />
+               </image>
+            </ImageView>
+
+            <!-- Titre -->
+            <Text layoutX="45.0" layoutY="58.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #4A4A4A; -fx-font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;" text="Ajouter un matériel de décoration" />
+
+            <!-- Formulaire pour ajouter la décoration -->
+            <VBox layoutX="29.0" layoutY="79.0" prefHeight="239.0" prefWidth="411.0" spacing="15" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;">
+               <HBox spacing="10">
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Titre Décoration : " />
+                  <TextField fx:id="tf_titre" style="-fx-font-size: 16px; -fx-text-fill: #555;" />
+               </HBox>
+               <HBox spacing="10">
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Prix Décoration : " />
+                  <TextField fx:id="tf_prix" style="-fx-font-size: 16px; -fx-text-fill: #555;" />
+               </HBox>
+               <HBox spacing="10">
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Type Décoration : " />
+                  <TextField fx:id="tf_typeDeco" style="-fx-font-size: 16px; -fx-text-fill: #555;" />
+               </HBox>
+               <HBox spacing="10">
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Description : " />
+                  <TextField fx:id="tf_description" style="-fx-font-size: 16px; -fx-text-fill: #555;" />
+               </HBox>
+               <HBox spacing="10">
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Stock : " />
+                  <TextField fx:id="tf_stock" style="-fx-font-size: 16px; -fx-text-fill: #555;" />
+               </HBox>
+            </VBox>
+
+            <!-- Boutons alignés à droite -->
+            <VBox alignment="CENTER_RIGHT" layoutX="448.0" layoutY="147.0" prefHeight="191.0" prefWidth="138.0" spacing="10">
+               <Button onAction="#AjouterDecoration" prefHeight="30.0" prefWidth="110.0" styleClass="submit-button" text="Ajouter" />
+               <Button onAction="#annulerDeco" prefHeight="30.0" prefWidth="110.0" styleClass="submit-button" text="Annuler" />
+               <Button onAction="#AfficherDeco" prefHeight="30.0" prefWidth="110.0" styleClass="submit-button" text="Afficher" />
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controllors.StatistiqueCommandeController">
+
+    <Label fx:id="totalCommandesLabel" text="Total Commandes : " />
+    <Label fx:id="chiffreAffairesLabel" text="Chiffre d'affaires : " />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="statMoisButton" text="Statistiques Mensuelles" />
+        <Button fx:id="statDecoButton" text="Statistiques par Décoration" />
+    </HBox>
+
+    <BarChart fx:id="statistiquesChart">
+        <xAxis>
+            <CategoryAxis label="Catégorie" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Nombre" />
+        </yAxis>
+    </BarChart>
+</VBox>

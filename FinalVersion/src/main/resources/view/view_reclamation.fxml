@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.eventcraft.controller.ViewReclamationController"
+            stylesheets="/styles/styles.css"
+            styleClass="root">
+    <left>
+        <VBox styleClass="left-panel">
+            <VBox styleClass="logo">
+                <ImageView fx:id="logoImage" fitHeight="120.0" fitWidth="120.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="EventCraft" styleClass="company-label"/>
+                <Label text="Crafting Memories" styleClass="slogan-label"/>
+            </VBox>
+            <VBox styleClass="nav-section">
+                <Button text="Profile" onAction="#handleProfileNavigation" styleClass="nav-button"/>
+                <Button text="View Reclamation" onAction="#navigateToViewReclamation" styleClass="nav-button"/>
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <VBox styleClass="form-panel">
+            <VBox styleClass="profile-header" spacing="10">
+                <Label text="Your Reclamations" styleClass="title-label"/>
+                <Label text="View and manage your submitted complaints" styleClass="info-label"/>
+            </VBox>
+            <ListView fx:id="reclamationsList" styleClass="reclamation-list" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+</BorderPane>

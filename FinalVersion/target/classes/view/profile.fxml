@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.eventcraft.controller.ProfileController"
+            stylesheets="/styles/styles.css"
+            styleClass="root">
+
+    <left>
+        <VBox styleClass="left-panel">
+
+            <!-- Logo Section -->
+            <VBox styleClass="logo">
+                <ImageView fx:id="logoImage" fitHeight="120.0" fitWidth="120.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="EventCraft" styleClass="company-label"/>
+                <Label text="Crafting Memories" styleClass="slogan-label"/>
+            </VBox>
+
+            <!-- Navigation Section -->
+            <VBox styleClass="nav-section">
+                <Button text="Edit Profile"
+                        onAction="#handleEditProfileNavigation"
+                        styleClass="nav-button"/>
+                <Button text="Notifications"
+                        styleClass="nav-button"/>
+                <Button text="Password"
+                        onAction="#handlePassword"
+                        styleClass="nav-button"/>
+                <Button text="Reclamation"
+                        onAction="#openReclamation"
+                        styleClass="nav-button"/>
+                <Button text="Privacy Policy"
+                        styleClass="nav-button"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20.0" styleClass="form-panel">
+            <!-- Profile Header -->
+            <VBox styleClass="profile-header">
+                <Label fx:id="userNameLabel" styleClass="title-label"/>
+                <Label text="Profile Settings" styleClass="info-label"/>
+            </VBox>
+
+            <!-- Profile Details -->
+            <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                <Label text="Profile Details" styleClass="title-label"/>
+                <ListView fx:id="profileDetailsList" styleClass="profile-list" VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+            <!-- Logout Button -->
+            <HBox alignment="CENTER">
+                <Button text="Logout"
+                        onAction="#handleLogout"
+                        styleClass="logout-button"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+</BorderPane>

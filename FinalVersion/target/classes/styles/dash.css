@@ -1,0 +1,118 @@
+/* Existing styles */
+.button {
+    -fx-background-color: #05071F;
+    -fx-text-fill: #e7e5e5;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: #10165F;
+}
+
+.button:pressed {
+    -fx-background-color: #1620A1;
+}
+
+.scroll-pane {
+    -fx-background-color: #02030A;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #10165F;
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
+
+.list-view {
+    -fx-background-color: #FAFAFA;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-font-size: 14px;
+}
+
+.list-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #DDDDDD;
+    -fx-border-width: 1px;
+    -fx-text-fill: #000000; /* Change text color to black for better contrast */
+}
+
+.list-cell:hover {
+    -fx-background-color: #F0F0F0;
+}
+
+.list-cell:selected {
+    -fx-background-color: #D1E7DD;
+    -fx-text-fill: #000000; /* Ensure selected text is also clear */
+}
+
+/* New styles for a modern look */
+.root {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+}
+
+.label {
+    -fx-text-fill: #000000; /* Change label text color to black */
+    -fx-font-size: 16px;
+}
+
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 5px;
+    -fx-border-color: #DDDDDD;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+    -fx-text-fill: #000000; /* Change text field text color to black */
+}
+
+.text-field:focused {
+    -fx-border-color: #10165F;
+}
+
+.pane {
+    -fx-background-color: #02030A;
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+}
+
+.dialog-pane {
+    -fx-background-color: #FAFAFA;
+    -fx-border-color: #DDDDDD;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+}
+
+.dialog-pane > .button-bar > .button {
+    -fx-background-color: #10165F;
+    -fx-text-fill: #FFFFFF;
+}
+
+.dialog-pane > .button-bar > .button:hover {
+    -fx-background-color: #1620A1;
+}

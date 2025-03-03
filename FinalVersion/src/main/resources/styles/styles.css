@@ -1,0 +1,309 @@
+.root {
+    -fx-background-color: #FAFAFA;
+}
+
+.left-panel {
+    -fx-background-color: #2D3436;
+    -fx-padding: 24;
+    -fx-pref-width: 320;
+    -fx-min-width: 320;
+    -fx-max-width: 320;
+    -fx-alignment: CENTER;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 2);
+}
+
+.logo {
+    -fx-padding: 16;
+}
+
+.company-label {
+    -fx-font-size: 32px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", system-ui;
+}
+
+.slogan-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #DFE6E9;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-opacity: 0.9;
+}
+
+.form-panel {
+    -fx-padding: 24;
+    -fx-spacing: 16;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-font-size: 16px;
+}
+
+.title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2D3436;
+    -fx-font-family: "Segoe UI", system-ui;
+}
+
+.input-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-width: 1px;
+    -fx-padding: 12px;
+    -fx-font-size: 16px;
+    -fx-pref-width: 320;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 1);
+    -fx-transition: -fx-border-color 0.2s;
+}
+
+.input-field:focused {
+    -fx-border-color: #0984E3;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(9, 132, 227, 0.1), 8, 0, 0, 2);
+}
+
+.submit-button {
+    -fx-background-color: #0984E3;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 24px;
+    -fx-cursor: hand;
+    -fx-pref-width: 320;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(9, 132, 227, 0.25), 8, 0, 0, 2);
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.submit-button:hover {
+    -fx-background-color: #0876CC;
+    -fx-effect: dropshadow(gaussian, rgba(9, 132, 227, 0.35), 10, 0, 0, 4);
+}
+
+.info-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #636E72;
+    -fx-font-family: "Segoe UI", system-ui;
+}
+
+.signup-link {
+    -fx-font-size: 16px;
+    -fx-text-fill: #0984E3;
+    -fx-cursor: hand;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-transition: -fx-text-fill 0.2s;
+}
+
+.signup-link:hover {
+    -fx-text-fill: #0876CC;
+    -fx-underline: true;
+}
+
+.profile-list {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 1);
+}
+
+.profile-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 16px;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-font-size: 16px;
+    -fx-text-fill: #2D3436;
+    -fx-border-color: transparent transparent #F0F0F0 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.profile-list .list-cell:hover {
+    -fx-background-color: #F8F9FA;
+}
+
+.profile-list .list-cell:selected {
+    -fx-background-color: #E3F2FD;
+}
+
+.profile-list .list-cell:empty {
+    -fx-border-width: 0;
+}
+
+.profile-header {
+    -fx-padding: 24px;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 1);
+}
+
+.logout-button {
+    -fx-background-color: #FF7675;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 24px;
+    -fx-cursor: hand;
+    -fx-pref-width: 320;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(255, 118, 117, 0.25), 8, 0, 0, 2);
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.logout-button:hover {
+    -fx-background-color: #FF6B6B;
+    -fx-effect: dropshadow(gaussian, rgba(255, 118, 117, 0.35), 10, 0, 0, 4);
+}
+/* Add these to your existing styles.css */
+
+.reclamation-list {
+    -fx-background-color: white;
+    -fx-border-color: #D2B48C;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-family: "Bahnschrift";
+}
+
+.reclamation-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 15px;
+    -fx-border-color: transparent transparent #F5E6D3 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.reclamation-list .list-cell:hover {
+    -fx-background-color: #F5E6D3;
+}
+
+.reclamation-list .list-cell:selected {
+    -fx-background-color: #E6D5C1;
+}
+
+.reclamation-list .list-cell:empty {
+    -fx-border-width: 0;
+}
+
+.reclamation-cell {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-font-family: "Bahnschrift";
+}
+
+.reclamation-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8B7355;
+    -fx-font-family: "Bahnschrift";
+}
+
+.reclamation-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-wrap-text: true;
+    -fx-font-family: "Bahnschrift";
+}
+
+.reclamation-status {
+    -fx-font-size: 14px;
+    -fx-text-fill: #705746;
+    -fx-font-style: italic;
+    -fx-font-family: "Bahnschrift";
+}
+
+.status-pending {
+    -fx-text-fill: #D4AF37;
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #DFE6E9;
+    -fx-font-size: 16px;
+    -fx-padding: 16px 24px;
+    -fx-cursor: hand;
+    -fx-pref-width: 280;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-family: "Segoe UI", system-ui;
+    -fx-background-radius: 8;
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: #FFFFFF;
+}
+
+.nav-button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-button.active {
+    -fx-background-color: rgba(9, 132, 227, 0.2);
+    -fx-text-fill: #0984E3;
+    -fx-border-color: #0984E3;
+    -fx-border-width: 0 0 0 3;
+}
+
+/* Navigation Section Styles */
+.nav-section {
+    -fx-spacing: 8;
+    -fx-padding: 16 0;
+}
+
+/* Adjust the left panel to accommodate navigation */
+.left-panel {
+    -fx-alignment: TOP_CENTER;
+}
+.status-resolved {
+    -fx-text-fill: #2E8B57;
+}
+
+.status-rejected {
+    -fx-text-fill: #B22222;
+}
+/* Add these styles to your styles.css file */
+
+.google-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #757575;
+    -fx-border-color: #4285F4;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8 12;
+    -fx-font-weight: bold;
+    -fx-graphic-text-gap: 8;
+}
+
+.google-button:hover {
+    -fx-background-color: #f8f8f8;
+    -fx-cursor: hand;
+}
+
+.account-connections {
+    -fx-padding: 10;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-background-color: #f9f9f9;
+}
+
+.section-label {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+.delete-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
+    -fx-padding: 2 5 2 5;
+}
+
+.delete-button:hover {
+    -fx-background-color: #ffeeee;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.eventcraft.controller.ViewResponsesController"
+            stylesheets="/styles/styles.css"
+            styleClass="root">
+    <left>
+        <VBox styleClass="left-panel">
+            <VBox styleClass="logo">
+                <ImageView fx:id="logoImage" fitHeight="120.0" fitWidth="120.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="EventCraft" styleClass="company-label"/>
+                <Label text="Crafting Memories" styleClass="slogan-label"/>
+            </VBox>
+            <VBox styleClass="nav-section">
+                <Button text="Profile" onAction="#handleProfileNavigation" styleClass="nav-button"/>
+                <Button text="View Reclamation" onAction="#handleViewReclamationNavigation" styleClass="nav-button"/>
+                <Button text="View Responses" onAction="#handleViewResponsesNavigation" styleClass="nav-button"/>
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <VBox styleClass="form-panel">
+            <Label text="Responses to Your Reclamations" styleClass="title-label"/>
+            <ListView fx:id="responsesListView" styleClass="profile-list, reclamation-list" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="16" />
+                </VBox.margin>
+            </ListView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -44,6 +44,9 @@
                         styleClass="nav-button"/>
                 <Button text="Privacy Policy"
                         styleClass="nav-button"/>
+                <Button text="Main Page"
+                        onAction="#handleMainNavigation"
+                        styleClass="nav-button"/>
             </VBox>
         </VBox>
     </left>

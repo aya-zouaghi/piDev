@@ -54,13 +54,13 @@ public class LoginController {
             SessionManager.setUser(user);
 
             try {
-                String fxmlPath = SessionManager.isAdmin() ? "/view/admin.fxml" : "/view/profile.fxml";
+                String fxmlPath = SessionManager.isAdmin() ? "/view/admin.fxml" : "/view/main.fxml";
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                 Parent mainPageView = loader.load();
 
                 if (!SessionManager.isAdmin()) {
-                    ProfileController profileController = loader.getController();
-                    profileController.setUser(user);
+                    MainDashboardController mainDashboardController = loader.getController();
+                    mainDashboardController.setUser(user);
                 }
 
                 Scene mainPageScene = new Scene(mainPageView);
@@ -78,33 +78,30 @@ public class LoginController {
         }
     }
 
+
     @FXML
     public void handleGoogleSignIn() {
         try {
             User googleUser = googleAuthService.signInWithGoogle();
 
             if (googleUser != null) {
-                // Check if the user is banned
                 if ("Banned".equalsIgnoreCase(googleUser.getStatutCompte())) {
                     showAlert("Your account is banned.");
                     return;
                 }
 
-                // If this is a new Google account, link it to the current user
-                // This simplified implementation assumes you want to replace the current credentials
-                // In a real app, you might want to link accounts instead
-
                 googleUser.setPassword("GOOGLE_AUTH_USER");
-                // Update user in database using your UserDAO
-
                 SessionManager.setUser(googleUser);
 
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/profile.fxml"));
+                    String fxmlPath = SessionManager.isAdmin() ? "/view/admin.fxml" : "/view/main.fxml";
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                     Parent mainPageView = loader.load();
 
-                    ProfileController profileController = loader.getController();
-                    profileController.setUser(googleUser);
+                    if (!SessionManager.isAdmin()) {
+                        MainDashboardController mainDashboardController = loader.getController();
+                        mainDashboardController.setUser(googleUser);
+                    }
 
                     Scene mainPageScene = new Scene(mainPageView);
                     String css = getClass().getResource("/styles/styles.css").toExternalForm();
@@ -122,6 +119,7 @@ public class LoginController {
             showAlert("Failed to connect Google account: " + e.getMessage());
         }
     }
+
 
 
     private void showAlert(String message) {

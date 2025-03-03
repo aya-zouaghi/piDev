@@ -248,6 +248,33 @@ public class ProfileController {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void handleMainNavigation(ActionEvent event) {
+        try {
+            // Add current page to navigation history before navigating
+            NavigationHistory.addPage("/view/profile.fxml");
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/main.fxml"));
+            Parent root = loader.load();
+
+            // Assuming there's a MainController to initialize
+            MainDashboardController mainDashboardController = loader.getController();
+            if (currentUser != null) {
+                mainDashboardController.setUser(currentUser);
+            } else {
+                showAlert("User data is not available.", Alert.AlertType.ERROR);
+            }
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Failed to load main view: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
 
     private void handleUnauthorizedAccess() {
         showAlert("Unauthorized access. You do not have permission to view this page.", Alert.AlertType.ERROR);

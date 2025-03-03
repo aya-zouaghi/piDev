@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.eventcraft.controller.MainDashboardController"
+            stylesheets="/styles/styles.css"
+            styleClass="root">
+
+    <left>
+        <VBox styleClass="left-panel">
+            <!-- Logo Section -->
+            <VBox styleClass="logo">
+                <ImageView fx:id="logoImage" fitHeight="120.0" fitWidth="120.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="EventCraft" styleClass="company-label"/>
+                <Label text="Crafting Memories" styleClass="slogan-label"/>
+            </VBox>
+
+            <!-- Navigation Section -->
+            <VBox styleClass="nav-section" VBox.vgrow="ALWAYS">
+                <Button text="Tableau de bord" styleClass="nav-button, active" fx:id="dashboardBtn"/>
+
+
+
+                <Button text="Mon profil" styleClass="nav-button" fx:id="profileBtn" onAction="#handleProfileNavigation"/>
+
+                <Button text="Réclamation" styleClass="nav-button" fx:id="reclamationBtn" onAction="#handleReclamationNavigation"/>
+            </VBox>
+
+            <!-- Logout Button at bottom -->
+            <Button text="Déconnexion" styleClass="logout-button" fx:id="logoutBtn" onAction="#handleLogout"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="dashboard-scrollpane">
+            <VBox spacing="24.0" styleClass="form-panel">
+                <!-- Main Header -->
+                <VBox styleClass="profile-header">
+                    <Label text="Bienvenue sur EventCraft" styleClass="title-label"/>
+                    <Label text="Votre portail d'organisation d'événements" styleClass="info-label"/>
+                </VBox>
+
+                <!-- Main Features Grid -->
+                <GridPane hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <!-- Gestion des salles card -->
+                    <VBox styleClass="dashboard-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Gestion des salles" styleClass="dashboard-card-title"/>
+                        <Label text="Réservez et gérez vos lieux d'événements"
+                               styleClass="dashboard-card-description" wrapText="true"/>
+                        <Button text="Accéder" styleClass="submit-button" onAction="#handleSallesNavigation"/>
+                    </VBox>
+
+                    <!-- Gestion des offres card -->
+                    <VBox styleClass="dashboard-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Gestion des offres" styleClass="dashboard-card-title"/>
+                        <Label text="Créez et suivez vos offres spéciales"
+                               styleClass="dashboard-card-description" wrapText="true"/>
+                        <Button text="Accéder" styleClass="submit-button" onAction="#handleOffresNavigation"/>
+                    </VBox>
+
+                    <!-- Forum card -->
+                    <VBox styleClass="dashboard-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="Forum" styleClass="dashboard-card-title"/>
+                        <Label text="Échangez avec la communauté des organisateurs"
+                               styleClass="dashboard-card-description" wrapText="true"/>
+                        <Button text="Accéder" styleClass="submit-button" onAction="#handleForumNavigation"/>
+                    </VBox>
+
+                    <!-- Gestion des décorations card -->
+                    <VBox styleClass="dashboard-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="Gestion des décorations" styleClass="dashboard-card-title"/>
+                        <Label text="Personnalisez le style de vos événements"
+                               styleClass="dashboard-card-description" wrapText="true"/>
+                        <Button text="Accéder" styleClass="submit-button" onAction="#handleDecorationsNavigation"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Quick Stats Section -->
+                <Label text="Statistiques rapides" styleClass="title-label"/>
+                <HBox spacing="15" styleClass="stats-container">
+                    <VBox styleClass="profile-header" HBox.hgrow="ALWAYS">
+                        <Label text="12" styleClass="stat-number"/>
+                        <Label text="Événements" styleClass="info-label"/>
+                    </VBox>
+
+                    <VBox styleClass="profile-header" HBox.hgrow="ALWAYS">
+                        <Label text="5" styleClass="stat-number"/>
+                        <Label text="Salles réservées" styleClass="info-label"/>
+                    </VBox>
+
+                    <VBox styleClass="profile-header" HBox.hgrow="ALWAYS">
+                        <Label text="8" styleClass="stat-number"/>
+                        <Label text="Offres actives" styleClass="info-label"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Recent Activity Section -->
+                <Label text="Activités récentes" styleClass="title-label"/>
+                <VBox styleClass="profile-list" VBox.vgrow="ALWAYS">
+                    <Label text="Réservation confirmée - Salle Grand Théâtre (12 Mars)"
+                           styleClass="activity-item"/>
+                    <Label text="Nouvelle offre créée - Pack Premium (Hier)"
+                           styleClass="activity-item"/>
+                    <Label text="Décoration ajoutée - Thème Moderne (Il y a 2 jours)"
+                           styleClass="activity-item"/>
+                    <Label text="Message reçu dans le forum (Il y a 3 jours)"
+                           styleClass="activity-item"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+</BorderPane>

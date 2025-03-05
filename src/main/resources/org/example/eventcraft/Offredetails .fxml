@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.eventcraft.controllers.OffreDetails"
+            prefHeight="450.0" prefWidth="700.0"
+            style="-fx-background-color: #FFFDF6FF;">
+
+    <VBox layoutX="100" layoutY="30" spacing="20" alignment="CENTER">
+        <padding>
+            <Insets top="20" right="100" bottom="20" left="100"/>
+        </padding>
+
+        <VBox spacing="15" style="-fx-background-color: FFFDF6FF; -fx-padding: 30px; -fx-border-radius: 10px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+            <Label fx:id="lblTitre" text="Titre: " style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <Label fx:id="lblDescription" text="Description: " style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+            <Label fx:id="lblType" text="Type: " style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+            <Label fx:id="lblMontant" text="Montant: " style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+            <Label fx:id="lblDateExp" text="Date Exp: " style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+            <Label fx:id="lblEvenement" text="Evenement: " style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+            <Label fx:id="lblUser" text="User: " style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+
+            <HBox spacing="20" alignment="CENTER">
+                <Button fx:id="btnModifier" text="Modifier" onAction="#modifierOffre" style="-fx-background-color: #8B7355; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-size: 14px; -fx-cursor: hand; -fx-border-radius: 5px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);"/>
+                <Button fx:id="btnSupprimer" text="Supprimer" onAction="#supprimerOffre" style="-fx-background-color: #8B7355; -fx-text-fill: white; -fx-padding: 10 20; -fx-font-size: 14px; -fx-cursor: hand; -fx-border-radius: 5px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);"/>
+            </HBox>
+        </VBox>
+
+    </VBox>
+
+</AnchorPane>

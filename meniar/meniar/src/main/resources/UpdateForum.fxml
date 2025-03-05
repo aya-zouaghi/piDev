@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@css/style.css"
+            style="-fx-background-color: #f5f5f5;"
+            prefWidth="800" prefHeight="600"
+            minWidth="600" minHeight="400"
+            fx:controller="org.example.meniar.controller.FormController">
+
+    <VBox spacing="20.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" 
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        
+        <!-- Header -->
+        <StackPane style="-fx-background-color: #CBA979;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <HBox alignment="CENTER">
+                <Text text="Modifier le Forum" 
+                      style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: white;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="idForumLabel" 
+                       style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+            </HBox>
+        </StackPane>
+
+        <!-- Main Content -->
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" 
+                   style="-fx-background: transparent; -fx-background-color: transparent;">
+            <VBox spacing="15.0" style="-fx-padding: 30 40;" alignment="CENTER">
+                <!-- Form Container -->
+                <VBox style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);"
+                      maxWidth="800">
+                    
+                    <!-- Title Field -->
+                    <VBox spacing="5">
+                        <Label text="Titre du Forum" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+                        <TextField fx:id="titreField" 
+                                 style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #E0E0E0; -fx-border-width: 1;"
+                                 promptText="Entrez le titre du forum"/>
+                    </VBox>
+
+                    <Separator style="-fx-padding: 10 0;"/>
+
+                    <!-- Description Field -->
+                    <VBox spacing="5">
+                        <Label text="Description" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+                        <TextArea fx:id="descriptionField" 
+                                 style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #E0E0E0; -fx-border-width: 1;"
+                                 wrapText="true" prefRowCount="4"
+                                 promptText="Entrez une description"/>
+                    </VBox>
+
+                    <Separator style="-fx-padding: 10 0;"/>
+
+                    <!-- Date and User ID in a row -->
+                    <HBox spacing="20">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Date de Création" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+                            <DatePicker fx:id="datePicker" 
+                                      style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #E0E0E0; -fx-border-width: 1;"
+                                      HBox.hgrow="ALWAYS"/>
+                        </VBox>
+
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="ID Utilisateur" style="-fx-font-size: 14px; -fx-text-fill: #333333;"/>
+                            <TextField fx:id="userIdField" 
+                                     style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #E0E0E0; -fx-border-width: 1;"
+                                     promptText="Entrez l'ID de l'utilisateur"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Buttons Container -->
+                <HBox spacing="15.0" alignment="CENTER_RIGHT" style="-fx-padding: 20 0;" maxWidth="800">
+                    <Button text="Retour" onAction="#onReturnClick" 
+                            style="-fx-padding: 12 25; -fx-background-radius: 5; -fx-font-size: 14px; -fx-background-color: #6C757D; -fx-text-fill: white;"/>
+                    <Button text="Mettre à jour" onAction="#onUpdateForumClick" 
+                            style="-fx-padding: 12 25; -fx-background-radius: 5; -fx-font-size: 14px; -fx-background-color: #CBA979; -fx-text-fill: white;"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</AnchorPane>
+

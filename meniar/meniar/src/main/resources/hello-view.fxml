@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@css/style.css"
+            style="-fx-background-color: linear-gradient(to bottom right, #f5f5f5, #e8e8e8);"
+            prefWidth="800" prefHeight="600"
+            minWidth="600" minHeight="400"
+            fx:controller="org.example.meniar.controller.HelloController">
+
+    <VBox spacing="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" 
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        
+        <!-- Modern Header with Gradient -->
+        <StackPane>
+            <Rectangle width="800" height="200" 
+                      style="-fx-fill: linear-gradient(to right, #CBA979, derive(#CBA979, 20%));"/>
+            <VBox alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets bottom="40.0" left="20.0" right="20.0" top="40.0"/>
+                </padding>
+                <Text text="Bienvenue" 
+                      style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-fill: white; -fx-font-family: 'Segoe UI'"/>
+                <Text text="Découvrez une expérience unique avec notre plateforme" 
+                      style="-fx-font-size: 16px; -fx-fill: white; -fx-opacity: 0.9; -fx-font-family: 'Segoe UI Light'"/>
+            </VBox>
+        </StackPane>
+
+        <!-- Main Content -->
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" 
+                   style="-fx-background: transparent; -fx-background-color: transparent;">
+            <VBox spacing="30.0">
+                <padding>
+                    <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+                </padding>
+
+                <!-- Statistics Section -->
+                <VBox spacing="20" alignment="CENTER">
+                    <Text text="Statistiques" 
+                          style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #333333;"/>
+                    
+                    <HBox spacing="20" alignment="CENTER">
+                        <!-- Total Forums Card -->
+                        <VBox styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 20; 
+                              -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+                              -fx-min-width: 200; -fx-alignment: CENTER;">
+                            <Text text="Forums Total" 
+                                  style="-fx-font-size: 16px; -fx-fill: #666666;"/>
+                            <Text fx:id="totalForumsText" text="0" 
+                                  style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-fill: #CBA979;"/>
+                        </VBox>
+
+                        <!-- Total Comments Card -->
+                        <VBox styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 20; 
+                              -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+                              -fx-min-width: 200; -fx-alignment: CENTER;">
+                            <Text text="Commentaires Total" 
+                                  style="-fx-font-size: 16px; -fx-fill: #666666;"/>
+                            <Text fx:id="totalCommentsText" text="0" 
+                                  style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-fill: #CBA979;"/>
+                        </VBox>
+
+                        <!-- Active Users Card -->
+                        <VBox styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 20; 
+                              -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+                              -fx-min-width: 200; -fx-alignment: CENTER;">
+                            <Text text="Utilisateurs Actifs" 
+                                  style="-fx-font-size: 16px; -fx-fill: #666666;"/>
+                            <Text fx:id="activeUsersText" text="0" 
+                                  style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-fill: #CBA979;"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Action Cards Container -->
+                <HBox spacing="20" alignment="CENTER">
+                    <!-- Add Forum Card -->
+                    <VBox styleClass="action-card" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 15; 
+                          -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-min-width: 300; 
+                          -fx-border-color: transparent transparent transparent #CBA979; -fx-border-width: 0 0 0 4;">
+                        <Text text="Créer un Forum" 
+                              style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-fill: #333333;"/>
+                        <Text text="Partagez vos idées avec la communauté" 
+                              style="-fx-font-size: 14px; -fx-fill: #666666; -fx-wrap-text: true;">
+                            <VBox.margin>
+                                <Insets bottom="20.0"/>
+                            </VBox.margin>
+                        </Text>
+                        <Button fx:id="startButton" text="Ajouter un Forum" onAction="#onStartButtonClick"
+                                style="-fx-padding: 12 25; -fx-background-radius: 25; -fx-font-size: 14px; 
+                                       -fx-background-color: #CBA979; -fx-text-fill: white; 
+                                       -fx-effect: dropshadow(gaussian, rgba(203,169,121,0.3), 10, 0, 0, 3);"/>
+                    </VBox>
+
+                    <!-- View Forums Card -->
+                    <VBox styleClass="action-card" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 15; 
+                          -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-min-width: 300;
+                          -fx-border-color: transparent transparent transparent #6C757D; -fx-border-width: 0 0 0 4;">
+                        <Text text="Explorer les Forums" 
+                              style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-fill: #333333;"/>
+                        <Text text="Découvrez les discussions en cours" 
+                              style="-fx-font-size: 14px; -fx-fill: #666666; -fx-wrap-text: true;">
+                            <VBox.margin>
+                                <Insets bottom="20.0"/>
+                            </VBox.margin>
+                        </Text>
+                        <Button fx:id="forumListButton" text="Voir la Liste" onAction="#onForumListButtonClick"
+                                style="-fx-padding: 12 25; -fx-background-radius: 25; -fx-font-size: 14px; 
+                                       -fx-background-color: #6C757D; -fx-text-fill: white;
+                                       -fx-effect: dropshadow(gaussian, rgba(108,117,125,0.3), 10, 0, 0, 3);"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</AnchorPane>
+

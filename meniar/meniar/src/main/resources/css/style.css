@@ -1,0 +1,50 @@
+.root {
+    -fx-background-color: #CBA979;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+}
+
+.button {
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8D598F;
+}
+
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+.button-green {
+    -fx-background-color: #98A695;
+}
+
+.button-blue {
+    -fx-background-color: #8D598F;
+}
+
+.button-red {
+    -fx-background-color: #B19BB2; /
+}
+
+.text-field, .text-area {
+    -fx-pref-width: 300px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-border-color: #8D598F;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.list-view {
+    -fx-pref-width: 700px;
+    -fx-pref-height: 450px;
+    -fx-background-color: black;
+    -fx-border-color: #B19BB2; /* Light purple border */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}

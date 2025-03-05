@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.eventcraft.controller.EditProfileController"
+            stylesheets="/styles/styles.css"
+            styleClass="root">
+    <left>
+        <VBox styleClass="left-panel">
+            <VBox styleClass="logo">
+                <ImageView fx:id="logoImage" fitHeight="120.0" fitWidth="120.0" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/logo.png"/>
+                    </image>
+                </ImageView>
+                <Label text="EventCraft" styleClass="company-label"/>
+                <Label text="Crafting Memories" styleClass="slogan-label"/>
+            </VBox>
+            <VBox styleClass="nav-section">
+
+                <Button text="Profile" onAction="#handleProfileNavigation" styleClass="nav-button"/>
+                <Button text="Notifications" styleClass="nav-button"/>
+                <Button text="Password" styleClass="nav-button"/>
+                <Button text="Settings" styleClass="nav-button"/>
+                <Button text="Privacy Policy" styleClass="nav-button"/>
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <VBox styleClass="form-panel">
+            <Label text="Edit Profile" styleClass="title-label"/>
+            <GridPane hgap="10" vgap="10">
+                <Label text="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="info-label"/>
+                <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="input-field"/>
+                <Label text="Prenom" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="info-label"/>
+                <TextField fx:id="prenomField" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="input-field"/>
+                <Label text="Role" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="info-label"/>
+                <TextField fx:id="roleField" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="input-field"/>
+                <Label text="Email" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="info-label"/>
+                <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="input-field"/>
+            </GridPane>
+            <Button text="Save" onAction="#saveProfile" styleClass="submit-button"/>
+        </VBox>
+    </center>
+</BorderPane>

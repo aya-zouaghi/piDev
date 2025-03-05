@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.animation.ScaleTransition?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eventcraft.controller.HelloSalleController">
+
+    <!-- Top Bar -->
+    <top>
+        <VBox>
+            <!-- HBox avec votre contenu -->
+            <HBox fx:id="menuBar" spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #CBA979;-fx-padding: 15px;">
+                <!-- Contenu de votre HBox (les boutons, labels, etc.) -->
+                <Region HBox.hgrow="ALWAYS" />
+                <!-- Right buttons -->
+                <Button text="Déconnexion" style="-fx-background-color: #CBA979; -fx-text-fill: white;" onAction="#handleConnexionButton" />
+                <Button fx:id="chatButton" text="Chat AI" onAction="#openChatWindow" styleClass="chat-button ;-fx-background-color: #CBA979;"/>
+            </HBox>
+
+            <!-- Ligne sous le HBox -->
+        </VBox>
+    </top>
+
+    <!-- Left Side Navigation -->
+    <left>
+        <VBox fx:id="sidenav" prefWidth="180" minWidth="180" maxWidth="180"
+              style="-fx-background-color: #CBA979; -fx-transition: 0.5s;" alignment="TOP_LEFT" >
+            <!-- Logo -->
+            <VBox alignment="TOP_CENTER">
+                <ImageView fx:id="logoImageView" fitWidth="100" fitHeight="100" preserveRatio="true" />
+            </VBox>
+
+            <Button text="Evènements" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 15px;" onAction="#handleAccueilButton"/>
+            <Button text="Salles" style="-fx-text-fill: white; -fx-font-size: 16px; " onAction="#handleEvenementsButton"/>
+            <Button text="Contact" style="-fx-text-fill: white; -fx-font-size: 16px; " onAction="#handlecontactButton" />
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <VBox fx:id="mainContent" spacing="10" alignment="CENTER" style="-fx-padding: 20;" maxWidth="1200" prefWidth="1200">
+            <HBox spacing="10" alignment="CENTER" style="-fx-background-color: #BBC4B8; -fx-padding: 10px; -fx-pref-width: 900px;">
+                <TextField fx:id="searchField" promptText="Rechercher une salle..." style="-fx-pref-width: 400px; -fx-padding: 5px;"/>
+                <ComboBox fx:id="capacityFilter" promptText="Capacité" styleClass="combo-box" style="-fx-pref-width: 150px;"/>
+                <ComboBox fx:id="qualityFilter" promptText="Qualité" styleClass="combo-box" style="-fx-pref-width: 150px;"/>
+                <TextField fx:id="advancedPriceField" promptText="Prix max" style="-fx-pref-width: 100px; -fx-padding: 5px;"/>
+
+                <Button text="Rechercher"
+                        styleClass="button rechercher-button"
+                        onAction="#onSearch"
+                        style="-fx-font-size: 15px; -fx-pref-width: 100px; -fx-pref-height: 30px; -fx-padding: 10px;"/>
+
+                <Button text="Ajouter une.."
+                        styleClass="button ajouter-button"
+                        onAction="#handleAjouterSalleButton"
+                        style="-fx-font-size: 15px; -fx-pref-width: 100px; -fx-pref-height: 40px; -fx-padding: 10px;"/>
+            </HBox>
+
+
+
+
+            <Label text="Réservez votre salle en Tunisie"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 20px; -fx-text-fill: #B19BB2;"/>
+            <ListView fx:id="listViewSalles" VBox.vgrow="ALWAYS" style="-fx-pref-width: 600px;"/>
+            <Pagination fx:id="pagination" styleClass="pagination" style="-fx-padding: 10px;"/>
+        </VBox>
+    </center>
+</BorderPane>

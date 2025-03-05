@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15.0"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.eventcraft.controller.CommentaireController">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+    </padding>
+
+    <!-- Titre et Description -->
+    <Label fx:id="forumTitleLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label fx:id="forumDescriptionLabel" wrapText="true" maxWidth="400"/>
+
+    <!-- Liste des Commentaires -->
+    <ListView fx:id="commentsListView" prefHeight="200" prefWidth="400"/>
+
+    <!-- Ajouter un Commentaire -->
+    <TextArea fx:id="commentTextArea" promptText="Écrire un commentaire..."/>
+    <Button fx:id="addCommentButton" text="Ajouter un Commentaire" onAction="#onAddCommentClick"
+            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;"/>
+
+    <!-- Bouton Retour -->
+    <Button fx:id="backButton" text="⬅ Retour" onAction="#onBackButtonClick"
+            style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;"/>
+</VBox>

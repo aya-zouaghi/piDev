@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.Region?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eventcraft.controller.DetailsSalleController">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox fx:id="menuBar" spacing="20" alignment="CENTER_LEFT"
+              style="-fx-padding: 10; -fx-background-color: #CBA979;">
+
+            <!-- Espace flexible pour pousser les boutons à droite -->
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Boutons à droite -->
+            <Button fx:id="afficherReservationsButton" text="Mes Réservations"
+                    onAction="#handleAfficherReservationsClick"
+                    style="-fx-border-color: #FFFFFF; -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-border-width: 1px; -fx-padding: 8 16; -fx-background-color: transparent" />
+
+            <Button text="Déconnexion" onAction="#handleConnexionButton"
+                    style="-fx-border-color: #FFFFFF; -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-border-width: 1px; -fx-padding: 8 16; -fx-background-color: transparent;" />
+        </HBox>
+    </top>
+
+    <!-- Left Side Navigation -->
+    <left>
+        <VBox fx:id="sidenav" prefWidth="180" minWidth="180" maxWidth="180"
+              style="-fx-background-color: #CBA979; -fx-transition: 0.5s;" alignment="TOP_LEFT" >
+            <!-- Logo -->
+            <VBox alignment="TOP_CENTER">
+                <ImageView fx:id="logoImageView" fitWidth="100" fitHeight="100" preserveRatio="true" />
+            </VBox>
+
+            <Button text="Evènements"  style="-fx-text-fill: white; -fx-font-size: 16px;
+               -fx-background-color: transparent;
+               -fx-border-color: transparent transparent white transparent;
+               -fx-border-width: 0 0 1px 0;
+               -fx-padding: 10px;" onAction="#handleAccueilButton"/>
+            <Button text="Salles"  style="-fx-text-fill: white; -fx-font-size: 16px;
+               -fx-background-color: transparent;
+               -fx-border-color: transparent transparent white transparent;
+               -fx-border-width: 0 0 1px 0;
+               -fx-padding: 10px;" onAction="#handleEvenementsButton"/>
+            <Button text="Contact"  style="-fx-text-fill: white; -fx-font-size: 16px;
+               -fx-background-color: transparent;
+               -fx-border-color: transparent transparent white transparent;
+               -fx-border-width: 0 0 1px 0;
+               -fx-padding: 10px;" onAction="#handlecontactButton" />
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <VBox fx:id="mainContent" spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20;">
+            <!-- Image de couverture -->
+            <AnchorPane fx:id="coverImageContainer" style="-fx-background-color: #f2f2f2;">
+                <ImageView fx:id="salleImageView" fitHeight="200" preserveRatio="true" />
+            </AnchorPane>
+
+            <!-- Informations de la salle -->
+            <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 20;">
+                <Label fx:id="salleNameLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                <Label fx:id="salleLocationLabel" style="-fx-font-size: 18px;" />
+                <Label fx:id="salleCapacityLabel" style="-fx-font-size: 18px;" />
+                <Label fx:id="sallePriceLabel" style="-fx-font-size: 18px; -fx-text-fill: #4CAF50;" />
+            </VBox>
+
+            <!-- Calendrier pour la réservation -->
+            <VBox spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20;">
+                <Label text="Choisir une date de réservation:" style="-fx-font-size: 18px;" />
+                <DatePicker fx:id="datePicker" style="-fx-font-size: 16px;" onAction="#handleDateSelection"/>
+                <Button fx:id="handleReserverButton" text="Réserver" onAction="#handleReserverButton"
+                        style="-fx-text-fill: white;
+           -fx-font-size: 18px;
+           -fx-background-color: #98A695;
+           -fx-max-width: 600px; /* Largeur maximale */
+           -fx-padding: 10px 20px;" />
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

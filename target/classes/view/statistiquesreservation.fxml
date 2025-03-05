@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eventcraft.controller.StatistiquesalleController">
+    <Label text="Suivre Vos Statistiques de Réservation" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <!-- ComboBox pour choisir l'affichage -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Afficher par :"/>
+        <ComboBox fx:id="periodChoice" />
+    </HBox>
+
+    <!-- Graphique -->
+    <BarChart fx:id="reservationChart" title="Réservations">
+        <xAxis>
+            <CategoryAxis label="Période" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Nombre de Réservations" />
+        </yAxis>
+    </BarChart>
+</VBox>

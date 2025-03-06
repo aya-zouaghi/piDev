@@ -17,7 +17,10 @@ public class ServicePayment implements IService<Payment> {
         cnx = MyDatabase.getInstance().getConnection();
     }
 
-
+    public Payment getById(int id) {
+        System.out.println("Non implémenté");
+        return null;
+    }
 
     public String paymentDetails(Payment payment) {
         return "Payment Details: \n" +
@@ -106,4 +109,5 @@ public class ServicePayment implements IService<Payment> {
         }
         return payments;
     }
+
 }

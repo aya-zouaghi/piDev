@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,23 +10,27 @@
 
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ListView?>
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllors.AfficherDecorationController">
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllors.AfficherDecorationController">
    <children>
-      <AnchorPane fx:id="affiche_listDeco" layoutX="5.0" layoutY="3.0" prefHeight="485.0" prefWidth="686.0">
+      <AnchorPane fx:id="affiche_listDeco" layoutX="14.0" layoutY="12.0" prefHeight="714.0" prefWidth="1078.0">
          <children>
-            <Pane fx:id="liste_Deco" layoutX="8.0" layoutY="12.0" prefHeight="656.0" prefWidth="1070.0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+            <Pane fx:id="liste_Deco" layoutX="8.0" layoutY="-5.0" prefHeight="704.0" prefWidth="1070.0" style="-fx-background-color: #FFFDF6; -fx-padding: 20px; -fx-border-color: #ccc; -fx-border-radius: 10px; -fx-background-radius: 10px;">
                <ImageView fitHeight="85.0" fitWidth="126.0" layoutX="903.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@images/logo.png" />
                   </image>
                </ImageView>
                <!-- Titre -->
-               <Text layoutX="100.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 35px; -fx-font-weight: bold; -fx-fill: #4A4A4A; -fx-font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;" text="Liste des matériels de décoration" />
+               <Text layoutX="100.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 35px; -fx-font-weight: bold; -fx-fill: #4A4A4A; -fx-font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;" text="Liste des matériels de décoration" />
+               <!-- Champ de recherche -->
+               <TextField fx:id="searchField" layoutX="111.0" layoutY="57.0" prefWidth="300.0" promptText="Rechercher par nom..." style="-fx-padding: 10px; -fx-font-size: 14px; -fx-border-color: #ccc; -fx-border-radius: 5px;" />
+               <Button layoutX="442.0" layoutY="58.0" mnemonicParsing="false" onAction="#rechercherArticle" style="-fx-background-color: #8B7355; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;" text="Rechercher" />
+
                <!-- Bouton "Ajouter Article" -->
-               <Button layoutX="740.0" layoutY="601.0" mnemonicParsing="false" onAction="#ajouterArticle" style="-fx-background-color: #8B7355; -fx-text-fill: white; -fx-font-size: 16px;-fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-font-size: 14px; -fx-cursor: hand; -fx-pref-width: 200; -fx-font-family: 'Bahnschrift';" text="Ajouter Article" />
+               <Button layoutX="754.0" layoutY="624.0" mnemonicParsing="false" onAction="#ajouterArticle" style="-fx-background-color: #8B7355; -fx-text-fill: white; -fx-font-size: 16px;-fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-font-size: 14px; -fx-cursor: hand; -fx-pref-width: 200; -fx-font-family: 'Bahnschrift';" text="Ajouter Article" />
 
                <children>
-                  <ScrollPane fx:id="Scroll_listeDeco" layoutX="14.0" layoutY="74.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;">
+                  <ScrollPane fx:id="Scroll_listeDeco" layoutX="14.0" layoutY="120.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #FFFDF3; -fx-padding: 20px;">
 
                      <content>
                         <ListView fx:id="lv_decoration" prefHeight="500.0" prefWidth="850.0" />

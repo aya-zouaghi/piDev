@@ -29,6 +29,7 @@ public class payerController {
     @FXML
     private Button afficherlist;
 
+
     // ✅ Constructor
     public payerController() {
     }
@@ -48,7 +49,7 @@ public class payerController {
         montant.setText(String.format("%.2f", montantValue)); // Formatage en 2 décimales
     }
 
-    @Deprecated
+   @FXML
     void Valider(ActionEvent event) {
         try {
             error1.setText("");
@@ -95,6 +96,8 @@ public class payerController {
                 System.out.println("✅ Email enregistré dans la base : " + userEmail);
 
 
+                showAlert("⚠ Paiement effectue avec succes.");
+
 
             } else {
                 showAlert("⚠ Paiement échoué.");
@@ -104,6 +107,19 @@ public class payerController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+       try{
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCommande.fxml"));
+           Parent root = loader.load();
+
+           // Remplacer la scène actuelle avec la nouvelle page
+           Stage stage = (Stage) afficherlist.getScene().getWindow();
+           stage.setScene(new javafx.scene.Scene(root));
+           stage.show();
+       } catch (IOException e) {
+           e.printStackTrace();
+           showAlert("Erreur", "Impossible de retourner à la liste des commandes.", Alert.AlertType.ERROR);
+       }
     }
 
     public void showAlert(String message) {
@@ -114,16 +130,7 @@ public class payerController {
         alert.showAndWait();
     }
 
-    private void showSuccess(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Succès");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
-
-    @Deprecated
 
 
     @FXML
@@ -149,5 +156,10 @@ public class payerController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    @FXML
+    public void retourPagePrecedente(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close(); // Ferme la fenêtre actuelle
     }
 }

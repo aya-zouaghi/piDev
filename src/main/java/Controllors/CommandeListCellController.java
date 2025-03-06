@@ -20,6 +20,8 @@ public class CommandeListCellController extends ListCell<CommandeDecoration> {
     private final Label prixLabel;
     private final Label nomDecorationLabel;
     private final Button detailsButton;
+
+
     public CommandeListCellController() {
         super();
 

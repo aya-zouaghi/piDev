@@ -9,10 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -21,6 +18,7 @@ import services.ServiceDecoration;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AfficherDecorationController {
 
@@ -33,8 +31,10 @@ public class AfficherDecorationController {
     @FXML
     private ListView<Decoration> lv_decoration;
     private static final ServiceDecoration servicedeco = new ServiceDecoration();
-
+    @FXML
+    private TextField searchField; // Champ de recherche
     private static final int STOCK_FAIBLE_SEUIL = 5;
+    private ObservableList<Decoration> allDecorations = FXCollections.observableArrayList();
 
     @FXML
     void initialize() {
@@ -48,18 +48,38 @@ public class AfficherDecorationController {
             return cellController;
         });
         chargerDeco();
-
+        setupSearch();
 
     }
-
+    @FXML
+    private void rechercherArticle(ActionEvent event) {
+        // Récupérer le texte dans le champ de recherche
+        String keyword = searchField.getText();
+        filterDecorations(keyword);
+    }
     private void chargerDeco() {
         try {
             List<Decoration> decos = servicedeco.afficher();
-            ObservableList<Decoration> data = FXCollections.observableArrayList(decos);
-
-            lv_decoration.setItems(data);
+            allDecorations.setAll(decos); // Remplit la liste pour le filtrage
+            lv_decoration.setItems(allDecorations);
         } catch (SQLException e) {
             System.out.println("aa");
+        }
+    }
+    private void setupSearch() {
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterDecorations(newValue);
+        });
+    }
+
+    private void filterDecorations(String keyword) {
+        if (keyword == null || keyword.isEmpty()) {
+            lv_decoration.setItems(allDecorations);
+        } else {
+            ObservableList<Decoration> filteredDecorations = allDecorations.stream()
+                    .filter(deco -> deco.getNom_decor().toLowerCase().contains(keyword.toLowerCase()))
+                    .collect(Collectors.toCollection(FXCollections::observableArrayList));
+            lv_decoration.setItems(filteredDecorations);
         }
     }
     public void rafraichirAffichage() {

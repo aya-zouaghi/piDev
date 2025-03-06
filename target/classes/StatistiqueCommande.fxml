@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="Controllors.StatistiqueCommandeController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #8B7355;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllors.StatistiqueCommandeController">
+    <children>
+        <AnchorPane layoutX="28.0" layoutY="14.0" prefHeight="657.0" prefWidth="937.0" style="-fx-background-color: white; -fx-background-radius: 13;">
+            <children>
+                <Text fill="#914614" layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistiques des Commandes" wrappingWidth="431.85015869140625">
+                    <font>
+                        <Font name="Calibri Bold" size="33.0" />
+                    </font>
+                </Text>
 
-    <Label fx:id="totalCommandesLabel" text="Total Commandes : " />
-    <Label fx:id="chiffreAffairesLabel" text="Chiffre d'affaires : " />
+                <VBox layoutX="50.0" layoutY="100.0" spacing="20" alignment="CENTER_LEFT">
+                    <Label fx:id="totalCommandesLabel" text="Total Commandes : " style="-fx-font-size: 18px; -fx-text-fill: #333;" />
+                    <Label fx:id="chiffreAffairesLabel" text="Chiffre d'affaires : " style="-fx-font-size: 18px; -fx-text-fill: #333;" />
+                </VBox>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button fx:id="statMoisButton" text="Statistiques Mensuelles" />
-        <Button fx:id="statDecoButton" text="Statistiques par Décoration" />
-    </HBox>
+                <HBox layoutX="50.0" layoutY="200.0" spacing="20">
+                    <Button fx:id="statMoisButton" text="Statistiques Mensuelles" style="-fx-background-color: #8d0a0a; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 8;" />
+                    <Button fx:id="statDecoButton" text="Statistiques par Décoration" style="-fx-background-color: #8d0a0a; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 8;" />
+                </HBox>
 
-    <BarChart fx:id="statistiquesChart">
-        <xAxis>
-            <CategoryAxis label="Catégorie" />
-        </xAxis>
-        <yAxis>
-            <NumberAxis label="Nombre" />
-        </yAxis>
-    </BarChart>
-</VBox>
+                <BarChart fx:id="statistiquesChart" layoutX="50.0" layoutY="300.0" prefHeight="300.0" prefWidth="800.0">
+                    <xAxis>
+                        <CategoryAxis label="Catégorie" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Nombre" />
+                    </yAxis>
+                </BarChart>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

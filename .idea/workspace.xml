@@ -75,11 +75,22 @@
       <workItem from="1739964437130" duration="3768000" />
       <workItem from="1740037822340" duration="679000" />
       <workItem from="1740413744406" duration="22956000" />
-      <workItem from="1740908635130" duration="49145000" />
+      <workItem from="1740908635130" duration="66231000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controllors/CommandeListCellController.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
